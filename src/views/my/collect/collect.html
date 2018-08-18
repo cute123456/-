@@ -1,0 +1,47 @@
+<div class="order">
+  <navHead title="我的收藏"></navHead>
+
+  <div class="content">
+    <div v-if="pageSize<=0">
+      <div class="no_data flexd">
+        <div class="imgBox">
+          <img src="~@/public/img/yue.png">
+        </div>
+        <p style="color:#737373;margin:18px 0;font-size:14px;">暂无收藏</p>
+        <div style="color:#fff;background:#eb632c
+        ;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/')">再去逛逛</div>
+      </div>
+    </div>
+
+    <div class="goodsWrap">
+
+      <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+        <yd-list theme="1" slot="list">
+          <div class="goodItem" v-for="val in collectLists" :key="val.id" @click="$router.push('/classifyDetail/detail?id=' + val.goods.id + '&g_isoffline=' + val.goods.g_isoffline)">
+<div class="mar10" v-if="val.goods">
+<div class="goodImg" :style=" 'background:url('+imgUrl+ val.goods.goodsThumb+') no-repeat ; background-size:cover;background-position:center;'"></div>
+              <div class="goodInfo" id="box">
+                <p class="goodName text-twowrap">{{val.goods.goodsName}}</p>
+                <div style="position:relative;">
+                  <p>
+                    <span class="price" style="font-size:12px;">￥</span>
+                    <span class="price">{{val.goods.goodsPrice}}</span>
+                    <span class="price" v-if="val.goods.is_join_yigoods == 1 && val.goods.hidden_price == 0" style="font-size:12px;">/ {{val.goods.g_yprice}}易豆</span>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </yd-list>
+        <!-- 数据全部加载完毕显示 -->
+        <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~~</span>
+
+        <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+        <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+      </yd-infinitescroll>
+    </div>
+
+  </div>
+</div>

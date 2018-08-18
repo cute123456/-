@@ -1,0 +1,208 @@
+.merchant {
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  /* padding-bottom: 20px; */
+}
+
+.mainWrap {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 15px;
+  overflow-y: scroll;
+  bottom: 0;
+}
+.merchant .detail_con3 {
+  margin-top: 10px;
+  padding: 5px 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+/* 内容 */
+
+.merchant .title1>div {
+  width: 80px;
+  height: 80px;
+  /* background: #af0203; */
+  border-radius: 50px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 20px
+}
+
+.merchant .dian {
+  width: 80%;
+  height: 100%;
+}
+
+.merchant .title1 h1 {
+  background: #f8f8f8;
+  text-align: center;
+  padding: 20px 0 30px;
+  border-radius: 8px; 
+  font-size: 18px;
+  
+}
+.title1 h1 p{
+  color:#7f7f7f;
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 19px;
+  margin-bottom: -10px;
+  letter-spacing: 1px; 
+}
+.merchant .reviewItem {
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+  height: 40px;
+  /* line-height: 40px; */
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.merchant .reviewItem div {
+  flex: 1;
+  text-align: right;
+}
+
+.merchant .photo1>div,
+.book {
+  margin: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 10px;
+}
+
+.book .book-more {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.merchant .photo1>div>div {
+  display: flex;
+}
+
+.merchant .photo1>div>div div {
+  width: 80px;
+  max-height: 80px;
+  overflow: hidden;
+  margin: 0 6px;
+}
+
+.merchant .photo1>div>div div img {
+  width: 100%;
+  height: 100%;
+}
+
+/* .merchant .book div {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+} */
+
+.merchant .book div img {
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+  margin-top: 4px;
+}
+
+.imgLabel {
+  display: inline-block;
+  text-align: center;
+  background: #f0f0f0;
+  color: #a0a0a0;
+  position: relative;
+  vertical-align: top;
+  width: 80px;
+  height: 81px;
+}
+
+.imgLabel label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 81px;
+}
+
+.imgLabel input {
+  display: none;
+}
+
+.imgLabel .uploadBtn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  left: 50%;
+  top: 4px;
+}
+
+.imgLabel span {
+  display: block;
+  font-size: 12px;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 60px;
+  margin-left: -30px;
+}
+
+.showImg {
+  position: relative;
+  position: relative;
+  width: 80px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.showImg .pic {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #bebdbd;
+}
+
+.showImg .closeBtn {
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.apply-wait {
+  width: 30px;
+  margin-right: 10px;
+  margin-bottom: 4px;
+}
+/* 按钮 */
+
+.bottom {
+  width: 100%;
+  line-height: 40px;
+  background: #f8f8f8;
+}
+.merchant .stepBtn {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  background: -webkit-linear-gradient(to right, #ef9035, #ec642b);
+  background: -o-linear-gradient(to right, #ef9035, #ec642b);
+  background: -moz-linear-gradient(to right, #ef9035, #ec642b);
+  background: -mos-linear-gradient(to right, #ef9035, #ec642b);
+  background: linear-gradient(to right, #ef9035, #ec642b);
+  box-shadow: 2.007px 2.229px 16.56px 1.44px rgba(246, 223, 211, 0.3);
+  color: #fff;
+  font-size: 16px;
+  border-radius: 20px;
+  margin-top: 30px;
+}

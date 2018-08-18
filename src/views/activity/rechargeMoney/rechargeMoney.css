@@ -1,0 +1,195 @@
+.rechargeBg {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    bottom: 110px;
+    right: 0;
+    padding: 10px 16px 0;
+    overflow-y: scroll;
+    background: #f7f7f7;
+}
+
+.title {
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+}
+
+
+/*  */
+
+.balance-box {
+    margin-top: 80px !important;
+}
+
+.back-box {
+    border-radius: 8px;
+    /* box-shadow: 3px 6px 22px rgba(4, 0, 0, 0.07); */
+    margin: 14px 0 0;
+    padding: 0 18px;
+}
+
+.backMoney h1 {
+    font-size: 15px;
+    color: #2f2f2f;
+    padding: 9px 0 20px;
+}
+
+.back-way {
+    background: #f5f5f5;
+    padding: 36px 20px 30px;
+    display: flex;
+    justify-content: flex-start;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.back-way img {
+    width: 24px;
+    margin-left: 10px;
+    margin-right: 6px;
+}
+
+.back-way p {
+    font-size: 13px;
+}
+
+
+/*  */
+
+.price-box {
+    padding: 28px 20px 26px;
+    background: #f9f9f9;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.balance-box .price {
+    margin-top: 8px;
+    font-size: 45px;
+    color: #2f2f2f;
+    border-bottom: 1px solid #e6e6e6;
+    width: 100%;
+    display: block;
+}
+
+.balance-box input::-webkit-input-placeholder {
+    color: #2f2f2f;
+}
+
+.balance-box input:-moz-placeholder {
+    color: #2f2f2f;
+}
+
+.balance-box input::-moz-placeholder {
+    color: #2f2f2f;
+}
+
+.balance-box input:-ms-input-placeholder {
+    color: #2f2f2f;
+}
+
+.price input {
+    margin-bottom: 14px;
+}
+
+.balance-box .balance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 1px;
+    padding: 17px 0 23px;
+}
+
+.balance p {
+    font-size: 12px;
+    color: #737373;
+}
+
+.balance span {
+    font-size: 12px;
+    color: #ec642b;
+}
+
+
+/* 手输金额 */
+
+.recharge .writeWrap {
+    height: 42px;
+    line-height: 42px;
+    border-radius: 10px;
+    border: solid 1px #df8182;
+    background: #fff;
+}
+
+
+/* 支付方式 */
+
+.recharge .method {
+    margin: 15px 12px 10px;
+    padding: 15px 12px;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.recharge .addinfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 4px 0;
+    background: #f9f9f9;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.recharge .addinfo .payIcon {
+    width: 23px;
+    height: 23px;
+    vertical-align: middle;
+}
+
+.recharge .payName {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    padding: 0 10px;
+}
+
+.recharge .demo2-item {
+    width: 23px;
+    height: 23px;
+    border: 1px solid #c95859;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 23px;
+    text-align: center;
+}
+
+.recharge .demo2-item-selected {
+    background: #fff url('~@/public/img/checked.png') no-repeat center;
+    background-size: 23px 23px;
+    border: solid 1px transparent;
+}
+
+.recharge .bottom {
+    margin: 0 36px;
+    margin-top:100px;
+}
+
+.recharge .btn {
+    height: 38px;
+    line-height: 38px;
+    border-radius: 30px;
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(to right, #ef9035, #ec642b);
+    color: #fff;
+    font-size: 15px;
+}
+
+.recharge .text {
+    font-size: 14px;
+    color: #999999;
+}

@@ -1,0 +1,246 @@
+/* 头部 */
+
+.navHead .header-title {}
+
+.header {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    z-index: 22;
+    box-shadow: 0 1px 4px #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #242424;
+    font-size: 16px;
+}
+
+.header .back {
+    flex: 0 0 80px;
+}
+
+.header .fanhui {
+    width: 17px;
+    height: 17px;
+    vertical-align: middle;
+}
+
+.header p {
+    /* font-size: 16px; */
+    font-weight: 500;
+}
+
+.header .head-right {
+    padding-right: 10px;
+    font-size: 14px;
+    flex: 0 0 80px;
+}
+
+
+/*----------------------购物车内容-------------------------*/
+
+.cart {
+    background: #ffffff;
+    position: absolute;
+    /* top: 0; */
+    bottom: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.cart .shop-content {
+    overflow: auto;
+    z-index: -1;
+    margin-bottom: 128px;
+    background: #fff;
+}
+
+
+/* 列表 */
+
+.cart .list {
+    background: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    padding: 4px 10px 16px;
+}
+
+.cart .payTitle {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: solid .5px #e8e8e8;
+}
+
+.cart .payTitle .titleMes {
+    color: #232323;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+.cart .addinfo {
+    justify-content: space-between;
+    position: relative;
+    padding: 8px 0;
+    background: #f9f9f9;
+    /* font-size: 15px; */
+    /* height:108px; */
+}
+
+.cart .addinfo .infoImg {
+    flex: 0 0 100px;
+    height: 100px;
+    border: solid 1px #ddd;
+}
+
+.cart .addinfo .infoImg>img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.cart .infoMes {
+    height: 100px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cart .shopIcon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin: 0 6px;
+}
+
+.cart .shopIconYes {
+    background: #fff url('~@/public/img/checked.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.cart .shopIconNull {
+    background: url('~@/public/img/cancel.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.cart .demo2-item {
+    border: 1px solid #c95859;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 23px;
+    text-align: center;
+}
+
+.cart .demo2-item-selected {
+    background: #fff url('~@/public/img/checked.png') no-repeat center;
+    background-size: 23px 23px;
+    border: solid 1px transparent;
+}
+
+.cart .quantity span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 4px;
+    /* margin: 0 6px; */
+    background: #ebebeb;
+    color: #c3c3c3;
+}
+
+.cart .quantity input {
+    width: 24px;
+    color: #707070;
+    border: none;
+    background: none;
+}
+
+
+/*-------------------------空购物车--------------------*/
+
+.cart .shopNone {
+    font-size: 14px;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 160px;
+}
+
+.cart .shopNone .noneImg {
+    margin-top: 40%;
+    width: 12%;
+    margin: auto;
+}
+
+.cart .shopNone .noneImg img {
+    width: 100%;
+}
+
+.cart .shopNone p {
+    margin: 14px 0;
+    color: #b9b9b9;
+}
+
+.cart .goHome {
+    width: 25%;
+    margin: auto;
+    background: #ec642b;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+}
+
+
+/* 结算 */
+
+.cart .moneyBottom {
+    position: fixed;
+    bottom: 0px;
+    z-index: 10;
+    /* height:30px;
+  line-height:30px; */
+    left: 0;
+    right: 0;
+    /* padding:0 10px; */
+    /* display: flex;
+  align-items: center;
+  justify-content: flex-end; */
+    /* background: #fff; */
+    z-index: 10;
+}
+
+.cart .shopBuy {
+    /* position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 54px; */
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    background: #f7f7f7;
+    font-size: 16px;
+}
+
+.cart .shop-buy-right {
+    width: 120px;
+    /* height:50px;
+  line-height:50px; */
+    color: #fff;
+    background-color: #ec642b;
+}
+
+.cart .allCheck {
+    padding: 0 10px;
+}

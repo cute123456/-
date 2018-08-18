@@ -1,0 +1,31 @@
+<div>
+    <div class="body-box">
+        <div class="body-left-fixed">
+            <li v-for="(value,index) in oneClass" :key="index" @click="getClassify(value.id)" class="body-left-item text-left" :class="{active: activeId == value.id}">
+                <span :class="{'circleActive':activeId == value.id}" class="circle"></span>
+                <span :class="{'bgcolor':activeId == value.id}">{{value.class_name}}</span>
+            </li>
+        </div>
+
+        <div class="body-left"></div>
+        <!-- 占位 -->
+
+        <div class="body-right flex">
+            <div>
+                <div class="body-right-classify" v-if="secondClass.length>0">
+                    <div class="body-right-item" v-for="(value,index) in secondClass" :key="index" @click="golist(value.id)">
+                        <div style="width:50px;height:50px;overflow:hidden;margin-bottom:10px">
+                            <img v-lazy="HTTP + value.class_logo">
+                        </div>
+                        <div v-text="value.class_name"></div>
+                    </div>
+                </div>
+                <div v-else style="position:fixed;top:0;bottom:54px;left:100px;right:0;font-size:15px;padding-top:50%;background:#fff;">
+                    <p class="text-center">暂无数据~~</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <fixBottom :check="2"></fixBottom>
+</div>

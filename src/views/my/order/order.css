@@ -1,0 +1,259 @@
+.order {
+  font-size: 14px;
+  color: #232323;
+}
+.yd-list-theme1{
+    padding:0 !important;
+}
+
+.order .nav {
+  width: auto;
+  display: flex;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  overflow-x: auto;
+  padding: 14px 16px;
+  background: #f9f9f9;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.order .nav .statusItem {
+  color: #6c6c6c;
+  padding: 8px 0;
+  text-align: center;
+  /* width: 100px; */
+  display: block;
+  float: left;
+  min-width: 74px;
+}
+
+.order .nav .active {
+  /* border-bottom: 2.5px solid #af0302;
+    color: #af0302; */
+  background: -webkit-linear-gradient(to right, #ef8d34, #ee783e);
+  background: -o-linear-gradient(to right, #ef8d34, #ee783e);
+  background: -moz-linear-gradient(to right, #ef8d34, #ee783e);
+  background: -mos-linear-gradient(to right, #ef8d34, #ee783e);
+  background: linear-gradient(to right, #ef8d34, #ee783e);
+  border-radius: 24px;
+  color: #fff;
+  box-shadow: 1px 1px 18px rgba(22, 121, 136, 0.2);
+}
+
+/* 内容 */
+
+.order .content {
+  width: 100%;
+  position: absolute;
+  top: 115px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  box-sizing: border-box;
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.order .content::-webkit-scrollbar {
+  display: none;
+}
+
+/* 商品列表 */
+
+.order .lists {
+  padding: 15px 0px;
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.order .lists:nth-child(1) {
+  border: none;
+  /* background: #fff; */
+  /* border-top:solid 10px #fff; */
+}
+
+.order .list-con {
+  border-radius: 10px;
+  background: #f7f7f7;
+  box-sizing: border-box;
+  padding: 14px;
+  margin:0 10px;
+}
+
+/* .order .list-con:nth-child(1) {
+    border-top: solid 20px #fff;
+} */
+
+/* 商品头 */
+
+.order .list .top {
+  border-bottom: .5px solid rgba(166, 166, 166, .13);
+  justify-content: space-between;
+  font-size: 14px;
+  color: #232323;
+  padding: 0 6px 8px;
+}
+
+.order .topRight {
+  font-size: 12px;
+  color: #a7a7a7
+}
+
+/* 商品 */
+
+.order .item {
+  /* height: 108px; */
+  display: flex;
+  padding: 8px 2px;
+  box-sizing: border-box
+}
+
+/* 商品图 */
+
+.order .item .left {
+  padding-right: 13px;
+}
+
+.order .item .itemImg {
+  width: 100px;
+  height: 100px;
+}
+
+.order .itemName {
+  font-size: 13px;
+  color: #232323;
+}
+
+/* 商品类别 */
+
+.order .itemColor {
+  color: #a7a7a7;
+}
+
+.order .itemColor span {
+  padding-right: 10px;
+  font-size: 12px;
+}
+
+/* 价格 */
+
+.order .right {
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+  justify-content: space-around;
+}
+
+.order .right .money {
+  color: #af0302;
+  font-size: 15px;
+}
+
+.order .money span {
+  font-size: 12px;
+}
+
+/* 商品数量  易豆数*/
+
+.order .rightNum {
+  justify-content: space-between;
+  width: 100%;
+  color: #afafaf;
+  font-size: 12px;
+}
+
+.order .rightNum .price {
+  color: #af0302;
+  font-size: 10px;
+}
+
+.order .rightNum .price .priceNum {
+  font-size: 12px;
+  margin-left: 3px;
+  color: #af0302;
+}
+
+.order .price img {
+  height: 12px;
+  margin-right: 3px;
+}
+
+/* 商品总计 */
+
+.order .lists .foot {
+  box-sizing: border-box;
+  text-align: right;
+  font-size: 14px;
+  color: #4b4b4b;
+  padding-right: 14px;
+  margin: 22px 10px;
+}
+.footTop {
+  /* height: 50px;
+  line-height: 50px; */
+  font-size: 15px;
+  /* border-bottom: .5px solid rgba(166, 166, 166, .13); */
+}
+
+.footTop span {
+  font-size: 15px;
+}
+
+.order .bottom {
+  text-align: right;
+  width: 100%;
+  margin: 20px 0;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
+.order .bottom span {
+  /* height: 24px;
+  line-height: 24px; */
+  display: block;
+  border-radius: 15px;
+  display: inline-block;
+  margin-left: 12px;
+  padding: 6px 12px;
+  border: 1px solid #dadada;
+}
+
+.list .list-border {
+  width: 100%;
+  height: 8px;
+  margin-bottom: 26px;
+  background: rgba(247, 247, 247, 0.79);
+}
+
+/* 没数据 */
+
+.order .no_data {
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.order .no_data .imgBox {
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+}
+
+.order .no_data .imgBox img {
+  width: 100%;
+}
+
+a:visited,
+a:active,
+a:link,
+a:hover {
+  color: #4b4b4b
+}
+
+.none {
+  display: none;
+}

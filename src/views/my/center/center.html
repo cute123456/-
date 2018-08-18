@@ -1,0 +1,165 @@
+<div class="center">
+    <div class="banner">
+        <div class="userinfo">
+            <div class="infoImg">
+                <div class="user-img">
+                    <img v-if="user.headimgurl" v-lazy="HSrc(user.headimgurl)">
+                    <img v-else src="~@/public/img/logo.jpg">
+                    <p class="text-twowrap">{{user.nickname}}</p>
+                    <!-- <h1 style="background: url('/static/imgs/vip.png') no-repeat left;background-size: contain;">{{user.vipLevel}}</h1> -->
+                    <h1 v-if="user.vipLevel == 1"><img src="/static/imgs/vip.png"><span>vip</span></h1>
+                </div>
+                <div class="userTop flexd text-right" @click="$router.push('/my/set')">
+                    <img src="~@/public/img/center_03.png">
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="infoMoneyBox  text-center" @click="$router.push('/my/myMoney')">
+                    <p class="money-title">账户余额</p>
+                    <p class="money">
+                        <span>￥</span>{{parseFloat(user.balance).toFixed(2)}}</p>
+                </div>
+                <div class="infoMoneyBox  text-center" @click="$router.push('/my/integral')">
+                    <p class="money-title">账户积分</p>
+                    <p class="money">{{user.integral}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="content">
+        <div class="title" @click="$router.push('/my/order')">
+            <p class="titleLeft">我的订单</p>
+            <p class="titleRight">查看全部订单
+                <icon-svg icon-class="you" class="aliIcon" style="width:15px;height:15px;"></icon-svg>
+            </p>
+        </div>
+
+        <div class="orders">
+            <div class="orderslist" @click="goOrder(0)">
+                <img class="orderItem" src="~@/public/img/center/center_07.png">
+                <p>待支付</p>
+            </div>
+            <div class="orderslist" @click="goOrder(1)">
+                <img class="orderItem" src="~@/public/img/center/center_09.png">
+                <p>待发货</p>
+            </div>
+            <div class="orderslist" @click="goOrder(2)">
+                <img class="orderItem" src="~@/public/img/center/center_11.png">
+                <p>待收货</p>
+            </div>
+            <div class="orderslist" @click="goOrder(3)">
+                <img class="orderItem" src="~@/public/img/center/center_13.png">
+                <p>已完成</p>
+            </div>
+            <div class="orderslist" @click="goOrder(5)">
+                <img class="orderItem" src="~@/public/img/center/center_15.png">
+                <p>售后</p>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="column column-box" @click="$router.push('/my/collect')">
+            <div class="colLeft">
+                <icon-svg icon-class="shoucang22" class="centerIcon"></icon-svg>
+                <p>我的收藏</p>
+            </div>
+            <div class="colRight flexd ">
+                <span>
+          <icon-svg icon-class="you" class="you"></icon-svg>
+        </span>
+            </div>
+        </div>
+        <div class="column" v-if="bussinessMan == 0" @click="toPage()">
+            <div class="colLeft">
+                <icon-svg icon-class="shangjia" class="centerIcon"></icon-svg>
+                <p>申请成为商家</p>
+            </div>
+            <div class="colRight flexd ">
+                <span>
+          <icon-svg icon-class="you" class="you"></icon-svg>
+        </span>
+            </div>
+        </div>
+        <div class="column" v-if="bussinessMan == 0" @click="$router.push('/my/coupons')">
+            <div class="colLeft">
+                <icon-svg icon-class="daijinquan1" class="centerIcon"></icon-svg>
+                <p>我的代金券</p>
+            </div>
+            <div class="colRight flexd ">
+                <span>
+          <icon-svg icon-class="you" class="you"></icon-svg>
+        </span>
+            </div>
+        </div>
+        <!-- <div class="column" @click="$router.push('/my/backMoney')">
+            <div class="colLeft">
+                <icon-svg icon-class="yue" class="centerIcon"></icon-svg>
+                <p>余额提现</p>
+            </div>
+            <div class="colRight flexd ">
+                <span><icon-svg icon-class="you" class="you"></icon-svg></span>
+            </div>
+        </div> -->
+        <div class="column" @click="$router.push('/my/manageAddress')">
+            <div class="colLeft">
+                <icon-svg icon-class="dizhi2" class="centerIcon"></icon-svg>
+                <p>地址管理</p>
+            </div>
+            <div class="colRight flexd ">
+                <span>
+          <icon-svg icon-class="you" class="you"></icon-svg>
+        </span>
+            </div>
+        </div>
+        <div class="column" @click="$router.push('/my/aboutUs')">
+            <div class="colLeft">
+                <icon-svg icon-class="guanyu1" class="centerIcon"></icon-svg>
+                <p>关于我们</p>
+            </div>
+            <div class="colRight flexd ">
+                <span>
+          <icon-svg icon-class="you" class="you"></icon-svg>
+        </span>
+            </div>
+        </div>
+        <div class="column" @click="$router.push('/my/invite')">
+            <div class="colLeft">
+                <icon-svg icon-class="yaoqing" class="centerIcon"></icon-svg>
+                <p>邀请好友</p>
+            </div>
+            <div class="colRight flexd ">
+                <span>
+          <icon-svg icon-class="you" class="you"></icon-svg>
+        </span>
+            </div>
+        </div>
+        <div class="column" @click="$router.push('/my/friendslist')">
+            <div class="colLeft">
+                <icon-svg icon-class="haoyou2" class="centerIcon"></icon-svg>
+                <p>好友列表</p>
+            </div>
+            <div class="colRight flexd ">
+                <span>
+          <icon-svg icon-class="you" class="you"></icon-svg>
+        </span>
+            </div>
+        </div>
+
+
+
+        <div class="column column-box" @click="$router.push('/my/myRed')">
+            <div class="colLeft">
+                <icon-svg icon-class="hongbao1" class="centerIcon"></icon-svg>
+                <p>我的红包</p>
+            </div>
+            <div class="colRight flexd ">
+                <span>
+          <icon-svg icon-class="you" class="you"></icon-svg>
+        </span>
+            </div>
+        </div>
+    </div>
+    <fixBottom :check="5"></fixBottom>
+
+</div>

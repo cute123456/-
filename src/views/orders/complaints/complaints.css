@@ -1,0 +1,139 @@
+    .wrap {
+        margin: 15px;
+        margin-top: 70px;
+    }
+    
+    .goods-detail {
+        padding: 10px 0 5px 10px;
+        background: #f9f9f9;
+        border-radius: 8px;
+    }
+    /* 商品 */
+    
+    .item {
+        /* height: 108px; */
+        display: flex;
+        padding: 8px 2px;
+        box-sizing: border-box
+    }
+    /* 商品图 */
+    
+    .item .left {
+        padding-right: 13px;
+    }
+    
+    .item .itemImg {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .itemName {
+        font-size: 13px;
+        color: #232323;
+    }
+    
+    .top {
+        border-bottom: .5px solid rgba(166, 166, 166, .13);
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #232323;
+        padding: 0 6px 8px;
+    }
+    
+    .text-twowrap {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    
+    .right {
+        display: flex;
+        margin-right: 10px;
+        flex-direction: column;
+        line-height: 20px;
+        justify-content: space-around;
+    }
+    
+    .right .money {
+        color: #de4019;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    
+    .commenArea {
+        margin-top: 15px;
+        background: #f9f9f8;
+        border-radius: 8px;
+        min-height: 220px;
+    }
+    
+    .commenArea textarea {
+        padding: 15px;
+        width: 100%;
+        background: none;
+    }
+    
+    .commenArea textarea::-webkit-input-placeholder {
+        color: #7e7e7e;
+        font-size: 14px;
+    }
+    
+    .publish {
+        justify-content: center;
+        position: fixed;
+        bottom: 10px;
+        width: auto;
+        left: 30px;
+        right: 30px;
+        height: 40px;
+        line-height: 40px;
+        color: #fff;
+        background-image: linear-gradient( 90deg, rgb(248, 118, 66) 0%, rgb(236, 101, 43) 100%);
+        box-shadow: 1.792px 4.668px 16.56px 1.44px rgba(237, 110, 45, 0.24);
+        border-radius: 20px;
+    }
+    
+    .reason {
+        margin-top: 15px;
+        padding: 25px 15px;
+        display: flex;
+        justify-content: space-between;
+        background: #f9f9f8;
+        border-radius: 8px;
+    }
+    
+    .reason-left {
+        color: #313131;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    
+    .reason-right {
+        font-size: 14px;
+        color: #7e7e7e;
+    }
+    
+    .reason-alert {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        top: 0;
+        background: rgba(0, 0, 0, .5);
+        z-index: 666;
+        height: 100%;
+    }
+    
+    .reason-alert .center {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        width: 80%;
+    }

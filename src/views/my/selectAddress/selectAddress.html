@@ -1,0 +1,35 @@
+<div class="selectAD">
+    <navHead title="选择收货地址" right="管理" @save="goManage"></navHead>
+    <div class="conent">
+        <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+            <yd-list theme="1" slot="list">
+                <div class="lists">
+                    <div class="select" v-for='(item,i) in addresses' @click="checkAddress(item)">
+                        <div class="list">
+                            <div class="flexd listTop">
+                                <p>收货人：{{item.consignee}}</p>
+                                <span>{{item.reapMobile}}</span>
+                            </div>
+                            <p>收货地址：{{item.reapProvince+item.reapCity+item.reapCounty+item.detailAddress}}
+                                <span style="color:#b42425;">{{item.isDefault == 1? '(默认地址)' : ''}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有地址啦~~</span>
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+        </yd-infinitescroll>
+        <div v-if="pageSize<=0">
+            <div class="no_data flexd">
+                <div class="imgBox">
+                    <img src="~@/public/img/yue.png" alt="加载中">
+                </div>
+                <p style="color:#737373;margin:18px 0;font-size:14px;">暂无地址</p>
+                <div style="color:#fff;background:#e42324;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/my/addAddress')">添加新地址</div>
+            </div>
+        </div>
+    </div>
+</div>

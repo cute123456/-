@@ -1,0 +1,46 @@
+<div class="complaints">
+  <navHead title="评论"></navHead>
+  <div class="comment text-left">
+    <!-- 输入评价区 -->
+    <div class="commenArea">
+      <textarea class="textarea" v-model="comment" @input="descInput" placeholder="商品满足你的期待吗？说说他的优点和美中不足的地方吧"></textarea>
+      <!--  -->
+      <div class="imgBox">
+        <div class="upload">
+          <div v-for="(image, index) in upImg" class="showImg">
+            <img v-lazy="imgUrl + image" class="pic">
+            <img @click="editImage(image,index)" class="closeBtn" src="/static/imgs/cancel.png">
+          </div>
+          <label>
+            <div class="imgLabel">
+              <img class="uploadBtn" src="../../../public/img/camera.png">
+              <span>添加图片</span>
+              <input accept="image/*" name="store_photo" @change="fileChange" type="file">
+            </div>
+          </label>
+
+        </div>
+      </div>
+      <!-- <p class="text-right" style="font-size:15px;padding-right:10px;line-height:26px;">
+                <span>{{remnant}}</span>/200</p> -->
+    </div>
+    <div class="score">
+      <img src="../../../public/img/store.png">
+      <span>描述相符</span>
+      <div class="star-box">
+        <template>
+          <yd-cell-group>
+            <yd-cell-item>
+              <yd-rate color="#b0b0b0" padding="8px" size="20px" active-color="#ec642b" slot="left" v-model="rate8" :show-text="tipText"></yd-rate>
+            </yd-cell-item>
+          </yd-cell-group>
+        </template>
+        <!-- <p v-for="item in 5" :key="item.id" @click="" :class="{'star':isActive,'starActive':!isActive}"></p> -->
+      </div>
+      <!-- <h1>5
+        <span>分</span>
+      </h1> -->
+    </div>
+    <div class="btn text-center" @click="GoComment()">发布</div>
+  </div>
+</div>

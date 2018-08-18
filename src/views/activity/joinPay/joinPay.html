@@ -1,0 +1,88 @@
+<div class="join">
+
+  <div class="joinBg" v-if="isJoin == 1" style="top:0;bottom:0;">
+    <div class="messageWrap">
+      <div class="message text-center">
+        <p style="font-size:17px;">您已报名，请准时参加</p>
+        <p v-if="infos.start_time && infos.end_time" style="font-size:14px;margin:10px 0;">活动时间：{{infos.start_time.split(' ')[0]}}至{{infos.end_time.split(' ')[0]}}</p>
+        <p style="font-size:14px;">活动地点：{{infos.activity_address}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="joinBg" v-if="isJoin == -1">
+
+    <div class="messageWrap">
+
+
+      <div class="message">
+        <!--报名信息填写-->
+        <p class="title text-center">{{infos.name ? infos.name : '报名活动'}}</p>
+        <div class="messageItem">
+          <p class="blue">姓名：</p>
+          <input class="messageText" type="text" v-model.trim="member.name">
+        </div>
+        <div class="messageItem">
+          <p class="blue">手机：</p>
+          <input class="messageText" type="number" v-model.trim="member.phone">
+        </div>
+        <div class="messageItem">
+          <p class="blue">公司：</p>
+          <input class="messageText" type="text" v-model.trim="member.compony">
+        </div>
+        <div class="messageItem">
+          <p class="blue">易货商品：</p>
+          <input class="messageText" type="text" v-model.trim="member.goodName">
+        </div>
+        <div class="messageItem">
+          <p class="blue">易货价值：</p>
+          <input class="messageText" type="text" v-model.trim="member.goodPrice">
+        </div>
+        <div class="messageItem">
+          <p class="blue">参会人数：</p>
+          <input class="messageText" type="number" v-model.trim="member.personNum">
+        </div>
+      </div>
+
+      <div class="notice">
+        <p v-if="infos.start_time && infos.end_time">1.活动时间：{{infos.start_time.split(' ')[0]}}至{{infos.end_time.split(' ')[0]}}</p>
+        <p>2.活动简介：{{infos.detail}}</p>
+        <p>3.活动地点：{{infos.activity_address}}</p>
+        <p>4.本次活动报名{{is_fee == 0 ? '免费': '收费'}}
+          <span v-if="is_fee == 1">({{infos.enroll_fee}}元)</span>
+        </p>
+      </div>
+
+      <checker v-if="is_fee == 1" v-model="paymethod" default-item-class="demo2-item" selected-item-class="demo2-item-selected"
+        disabled-item-class="demo2-item-disabled">
+        <div class="addinfo">
+          <icon-svg icon-class="weixinzhifu" class="payIcon"></icon-svg>
+          <div class="payName flex">
+            <p style="color:#252525;font-size:15px;">微信</p>
+            <p style="color:#909090;font-size:13px;">支付</p>
+          </div>
+          <checker-item value="微信"></checker-item>
+        </div>
+        <div class="addinfo">
+          <img src="~@/public/img/home/豆子.png" class="payIcon">
+          <div class="payName flex">
+            <p style="color:#252525;font-size:15px;">易豆</p>
+            <p style="color:#909090;font-size:13px;">总易豆数： {{parseInt(user.yi_peas)}}
+              <span v-if="user.is_restrict == 1">易豆暂被冻结</span>
+              <span v-if="user.is_restrict == 3">账号暂被冻结</span>
+            </p>
+          </div>
+          <checker-item v-if="user.yi_peas <= 0 || user.is_restrict == 1 || user.is_restrict == 3 " value="易豆" disabled></checker-item>
+          <checker-item v-else value="易豆"></checker-item>
+        </div>
+      </checker>
+
+      <div class="signBtn text-center" @click="sign()">{{is_fee == 0 ? '立即报名' : '付费报名'}}</div>
+
+
+
+    </div>
+
+  </div>
+
+</div>

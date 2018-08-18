@@ -1,0 +1,123 @@
+footer.footerbar {
+    height: 56px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: #f7f6f7;
+    box-shadow: 0 -1px 9px rgba(4, 0, 0, 0.1);
+    /*只有头部阴影*/
+}
+
+footer.footerbar .footItem {
+    float: left;
+    width: 20%;
+    line-height: 76px;
+    background-repeat: no-repeat;
+    background-position: center 7px;
+    background-size: 22px 22px;
+    overflow: hidden;
+    font-size: 14px;
+    padding-top: 5px;
+    color: #929292;
+}
+
+.home1 {
+    background-image: url("./img/tab_01.png");
+    color: #929292;
+}
+
+footer.footerbar .home2 {
+    background-image: url("./img/tab_active_01.png");
+    color: #ee7d31;
+    /* background-color: #212122; */
+}
+
+.shop1 {
+    color: #929292;
+    background-image: url("./img/tab_03.png");
+}
+
+footer.footerbar .shop2 {
+    background-image: url("./img/tab_active_03.png");
+    color: #ee7d31;
+    /* background-color: #212122; */
+}
+
+.realChange1 {
+    color: #929292;
+    background-image: url("./img/tab_03.png");
+}
+
+footer.footerbar .realChange2 {
+    background-image: url("./img/tab_active_03.png");
+    color: #ee7d31;
+    /* background-color: #212122; */
+}
+
+.classify1 {
+    color: #929292;
+    background-image: url("./img/tab_02.png");
+}
+
+footer.footerbar .classify2 {
+    background-image: url("./img/tab_active_02.png");
+    color: #ee7d31;
+    /* background-color: #212122; */
+}
+.find1 {
+  color: #929292;
+  background-image: url("./img/tab_05.png");
+}
+
+footer.footerbar .find2 {
+  background-image: url("./img/tab_active_05.png");
+  color: #ee7d31;
+  /* background-color: #212122; */
+}
+
+.my1 {
+    background-image: url("./img/tab_04.png");
+    color: #929292;
+    background-size: 100%;
+}
+
+footer.footerbar .my2 {
+    background-image: url("./img/tab_active_04.png");
+    color: #ee7d31;
+    /* background-color: #212122; */
+}
+
+a,
+a:visited,
+a:hover {
+    color: #929292;
+}
+
+.change {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-left: -27px;
+    background: #f6f6f6;
+    border-radius: 50%;
+    z-index: -1;
+    border-top: solid 1px #ddd;
+    /* box-shadow: 0 -1px 1px #e7e7e7;  */
+    /*只有头部阴影*/
+}
+
+.change img {
+    max-width: 36px;
+    display: block;
+    border: 0;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+footer.footerbar .red {
+    color: #fff;
+}

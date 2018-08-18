@@ -1,0 +1,96 @@
+<div class="orderDetail">
+    <navHead title="订单详情" style="z-index:10"></navHead>
+    <div v-for="(infos, index) in orderInfos" :key="infos.id">
+        <div class="conten">
+            <div class="top">
+                <div style="padding-right:10px;">
+                    <icon-svg icon-class="ditu" class="aliIcon"></icon-svg>
+                </div>
+                <div style="flex:1;line-height:24px;">
+                    <div class="xinxi">
+                        <p style="font-size:15px;">收货人：{{infos[orderId].consignee}}</p>
+                        <span>{{infos[orderId].mobile}}</span>
+                    </div>
+                    <p style="font-size:14px;">收货地址：{{infos[orderId].address}}</p>
+                </div>
+            </div>
+            <div class="details">
+                <div class="title">
+                    <p>
+                        <icon-svg icon-class="dianpu" class="aliIcon"></icon-svg>
+                        <span style="color:#232323;" v-if="infos[orderId].business">{{infos[orderId].business.shopName}}</span>
+                    </p>
+                    <span v-if="infos[orderId].orderStatus == 0">待付款</span>
+                    <span v-if="infos[orderId].orderStatus == 1">待发货</span>
+                    <span v-if="infos[orderId].orderStatus == 2">待收货</span>
+                    <span v-if="infos[orderId].orderStatus == 4">已完成</span>
+                    <span v-if="!afterSale && infos[orderId].orderStatus == 5">未审核</span>
+                    <span v-if="!afterSale && infos[orderId].orderStatus == 6">已通过</span>
+                    <div v-if="afterSale && infos[orderId].orderStatus ==5">
+                        <span class="topRight" v-if="afterSale.status == 0">待售后</span>
+                        <span class="topRight" v-if="afterSale.status == 1">已通过</span>
+                        <span class="topRight" v-if="afterSale.status == 2">已拒绝</span>
+                        <span class="topRight" v-if="afterSale.status == 3">已退款</span>
+                    </div>
+                </div>
+                <div class="lists" v-if="infos[orderId].business.orderGoods" v-for="orderGoods in infos[orderId].business.orderGoods" :key="orderGoods.id">
+                    <div>
+                        <div class="list">
+                            <div class="listPic">
+                                <img v-lazy="HTTP+orderGoods.goods.goodsThumb" style="width:100px;height:100px;">
+                            </div>
+                            <div class="listCon flex">
+                                <p class="name text-twowrap">{{orderGoods.goods.goodsName}}</p>
+                                <p class="price">￥
+                                    <span style="font-size:16px;">{{orderGoods.goodsPrice}}</span>
+                                </p>
+                                <div class="yidou">
+                                    <span>规格/数量：{{orderGoods.goodsSpecification}}×{{orderGoods.goodsQuantity}}</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <p v-if="infos[orderId].orderStatus == 3 && orderGoods.iscomment == 0" @click="$router.push('/my/commend?goodId=' + orderGoods.goods.id + '&orderId=' + infos[orderId].id )" class="text-right" style="padding-bottom:6px;">
+                            <span style="border-radius:12px;border:solid 1px #959595;font-size:12px;padding:3px 10px;">评论</span>
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="cost">
+                <p style="font-size:15px;">
+                    <span>实付款</span>
+                    <span class="red">
+                        <span>￥{{parseFloat(infos[orderId].orderTotalPrice)}}</span>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="costBox">
+            <div class="bottom">
+                <p>订单编号：{{infos[orderId].orderSn}}</p>
+                <p v-if="infos[orderId].logistic != null">物流公司：{{infos[orderId].logistic}}</p>
+                <p v-if="infos[orderId].logisticNumber != null">物流单号：{{infos[orderId].logisticNumber}}</p>
+                <p>下单时间：{{infos[orderId].createdAt}}</p>
+                <p>商家姓名：{{infos[orderId].business.shopName}}</p>
+                <p>商家电话：{{infos[orderId].business.shopMobile}}</p>
+                <p>商家地址：{{infos[orderId].business.province}}{{infos[orderId].business.city}}{{infos[orderId].business.county}}{{infos[orderId].business.address}}</p>
+                <p>备注：{{infos[orderId].remark ? infos[orderId].remark : '无'}}</p>
+                <p v-if="afterSale && infos[orderId].orderStatus ==5">退款原因：{{afterSale.reason}}</p>
+            </div>
+        </div>
+        <!-- 当显示待收货时出现 -->
+        <div class="text-right">
+            <div>
+                <p class="status" v-if="infos[orderId].orderStatus == 0" @click="goPge(infos[orderId])">付款</p>
+                <p class="status" v-if="infos[orderId].orderStatus == 0" @click="cancelOrder(infos[orderId])">删除订单</p>
+                <!-- <p  @click="$router.push('/my/refund?orderId=' + infos[orderId].id + '&status=' + infos[orderId].orderStatus)" class="status" v-if="infos[orderId].orderStatus == 1">申请退款</p> -->
+                <p class="status" v-if="infos[orderId].orderStatus == 2" @click="confirmGoods(infos)">确认收货</p>
+                <p class="status" v-if="infos[orderId].orderStatus == 1" @click="$router.push('/orders/refund?orderId=' + infos[orderId].id)">申请退款</p>
+                <p class="status" v-if="infos[orderId].orderStatus == 3" @click="delOrder(infos)">删除</p>
+            </div>
+        </div>
+    </div>
+
+</div>

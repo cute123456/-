@@ -1,0 +1,108 @@
+<div class="payment">
+    <navHead title="支付收银台"></navHead>
+    <div class="content">
+        <!-- 商品信息 -->
+        <div class="product">
+            <transition-group>
+                <div class="product1" v-for="shop in orderDatas" :key="shop.id">
+                    <div class="payTitle">
+                        <icon-svg icon-class="dianpu" class="aliIcon"></icon-svg>
+                        <span class="titleName" style="padding-left:6px;">{{shop.business.shopName}}</span>
+                    </div>
+                    <div style="display:flex;margin-bottom:8px;" v-for="goods in shop.business.orderGoods">
+                        <div class="product2">
+                            <img :src="imgUrl + goods.goodsThumb">
+                        </div>
+                        <div class="productMes">
+                            <div class="name text-twowrap">{{goods.goodsName}}</div>
+                            <div style="font-size:12px;color:#909090;">
+                                <span>规格/数量：</span>
+                                <span>{{goods.goodsSpecification}}×{{goods.goodsQuantity}}</span>
+                            </div>
+                            <div class="red" style="font-weight:500;">
+                                <span style="font-size:12px;">￥</span>
+                                <span style="font-size:14px;">{{shop.orderTotalPrice}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </transition-group>
+
+            <div class="openMes text-right" @click="isShow()" v-if="orderId.length>1">
+                <icon-svg icon-class="02" class="aliIcon" v-if="!show"></icon-svg>
+                <icon-svg icon-class="up" class="aliIcon" v-if="show"></icon-svg>
+                {{show ? '折叠' : '展开' }}
+            </div>
+
+            <div style="margin:0 10px;padding:0 6px;font-size:14px;" class="text-right">
+                合计：
+                <span style="font-weight:500;">
+                    <span class="red" style="font-size:13px;">￥</span>
+                <span class="red" style="font-size:16px;">{{totalMoney}}</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- 支付方式 -->
+        <div class="method">
+            <div class="payTitle">
+                <span class="titleMes">支付方式</span>
+            </div>
+            <checker v-model="paymethod" @on-change="changWechatPay(paymethod)" default-item-class="demo2-item" selected-item-class="demo2-item-selected" disabled-item-class="demo2-item-disabled" type="checkbox">
+                <div class="addinfo">
+                    <icon-svg icon-class="weixinzhifu" class="payIcon"></icon-svg>
+                    <div class="payName flex">
+                        <p style="color:#252525;font-size:15px;">微信支付：<span class="red">{{wechatPay}}元</span></p>
+                    </div>
+                </div>
+
+                <div class="addinfo" style="border-top:1px solid #eee" v-if="user.vipLevel == 1 && this.isIntegralPay">
+                    <icon-svg icon-class="yue" class="payIcon"></icon-svg>
+                    <div class="payName flex">
+                        <p style="color:#252525;font-size:15px;">积分抵扣：
+                            <span class="red" v-if="integralPayMethod == true">{{integralPay}}积分</span>
+                            <span class="red" v-else>积分不足{{integralPay}}</span>
+                        </p>
+                    </div>
+                    <checker-item value="积分" v-if="integralPayMethod == true"></checker-item>
+                    <checker-item value="积分" v-else disabled></checker-item>
+                </div>
+
+                <!-- <div class="addinfo" v-if="deductibleAmount>0">
+                    <icon-svg icon-class="yue-copy" class="payIcon"></icon-svg>
+                    <div class="payName flex">
+                        <p style="color:#252525;font-size:15px;">红包抵扣：<span class="red">{{deductibleAmount}}元</span></p>
+                    </div>
+                </div> -->
+
+                <!-- <div class="coupon"></div> -->
+                <!-- <div class="column" @click="toSelect">
+                    <div class="colLeft">
+                        <icon-svg icon-class="daijinquan1" class="centerIcon"></icon-svg>
+                        <p>代金券</p>
+                    </div>
+                    <div class="colRight flexd ">
+                        <div class="coupon">{{couponname?couponname:'无可用'}}</div>
+                        <span>
+                  <icon-svg icon-class="you" class="you"></icon-svg>
+                </span>
+                    </div>
+                </div> -->
+            </checker>
+
+            <!-- <div class="attention">
+                    <p>注意：</p>
+                    <p>1.当余额不够时，会自动以另一种方式付款。</p>
+                    <p>2.已阅读并且同意<span style="color:#ba3f40;">购买协议</span></p>
+                </div> -->
+        </div>
+    </div>
+
+    <div @click="payNotice()" class="payBtn text-center">
+        <p>立即支付</p>
+        <!-- <p>易豆支付</p> -->
+    </div>
+
+
+</div>

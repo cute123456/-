@@ -1,0 +1,118 @@
+<div class="merchant">
+  <navHead title="申请为商家" style="z-index:10"></navHead>
+  <div class="mainWrap">
+    <div class="step-one" v-if="step==1">
+      <img src="~@/public/img/step_01.png" alt="">
+    </div>
+    <div class="step-one" v-if="step==2">
+      <img src="~@/public/img/step_02.png" alt="">
+    </div>
+
+    <!-- 步骤一,填写基本资料 -->
+    <div class="conten1" v-if="step == 1">
+      <div class="mesItem">
+        <p>商铺名称：</p>
+        <input type="text" placeholder="请输入商家名称" v-model.trim="baseMessage.b_name" @change="change('b_name',baseMessage.b_name)">
+      </div>
+      <div class="mesItem">
+        <p>姓名：</p>
+        <input type="text" placeholder="负责人姓名" v-model.trim="baseMessage.b_uname" @change="change('b_uname',baseMessage.b_uname)">
+      </div>
+      <div class="mesItem">
+        <p>电话：</p>
+        <input type="number" placeholder="负责人手机号" v-model.trim="baseMessage.b_mobile" @change="change('b_mobile',baseMessage.b_mobile)">
+      </div>
+      <div class="mesItem">
+        <p>地址：</p>
+        <input type="text" placeholder="选择地址" v-model.trim="baseMessage.address" readonly @click.stop="showDistrict = true" @change="'address', baseMessage.address">
+        <yd-cityselect v-model="showDistrict" :callback="getDistrict" :items="district"></yd-cityselect>
+      </div>
+      <div class="mesItem">
+        <p>详细地址：</p>
+        <input type="text" placeholder="输入详细地址" v-model.trim="baseMessage.b_detail_address" @change="change('b_detail_address', baseMessage.b_detail_address)">
+      </div>
+      <div class="mesItem">
+        <p>商家类型：</p>
+        <select v-model="baseMessage.b_type" @change="change('b_type', baseMessage.b_type)">
+          <option value="请选择商家类型" selected disabled>请选择商家类型</option>
+          <option value="个人">个人</option>
+          <option value="企业">企业</option>
+        </select>
+      </div>
+      <div style="text-align:left;margin-left:10px;margin-top:20px;margin-bottom:20px;font-size:14px;">
+        <yd-checkbox v-model="checkbox1" color="#ee7d31" shape="circle">同意</yd-checkbox>
+        <router-link to="/orders/agree">
+          <span style="font-size:14px;color:#ee7d31;">合作协议</span>
+        </router-link>
+      </div>
+    </div>
+    <!-- 步骤二，上传图片 -->
+    <div class="conten2" v-else-if="step == 2">
+      <div class="imgBox">
+        <p class="imgTitle">一、店铺门头图上传：</p>
+        <upload :upName.sync="photo"></upload>
+      </div>
+      <div class="imgBox">
+        <p class="imgTitle">二、店铺内部照图上传：</p>
+        <div class="upload">
+          <div v-for="(image, index) in upImg" class="showImg">
+            <img v-lazy="imgUrl + image" class="pic">
+            <img @click="editImage(image,index)" class="closeBtn" src="/static/imgs/cancel.png">
+          </div>
+          <div class="imgLabel">
+            <img class="uploadBtn" src="/static/imgs/upload.png">
+            <span>添加图片</span>
+            <label>
+              <input accept="image/*" name="store_photo" @change="fileChange" type="file">
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- 企业申请成为商家 -->
+      <div style="border-bottom: 1px solid #e5e5e5;">
+        <div class="imgBox">
+          <p class="imgTitle">三、商店营业执照：</p>
+          <div>
+            <upload :upName.sync="licenseThumb"></upload>
+          </div>
+        </div>
+        <div class="imgBox">
+          <p class="imgTitle">四、法人银行卡照片：</p>
+          <div>
+            <upload :upName.sync="bank_thumb"></upload>
+          </div>
+        </div>
+      </div>
+      <div class="imgBox">
+        <p class="imgTitle">五、身份证正反面</p>
+        <div style="display:flex;justify-content: flex-start;">
+          <upload :upName.sync="personFront" style="margin-right:12px;"></upload>
+          <upload :upName.sync="personBack"></upload>
+        </div>
+      </div>
+
+    </div>
+    <!-- 步骤三，审核结果 -->
+    <!-- <div class="conten2" v-else-if="step == 3">
+      <div class="step-three">
+        <img src="~@/public/img/apply.png" alt="">
+        <p>资料提交成功，等待审核！</p>
+      </div>
+    </div> -->
+    <!-- 按钮 -->
+    <div v-if="step <= 3" class="bottom ">
+      <div style="padding:30px 0 0; margin:0 auto;">
+        <div v-if="step==1">
+          <p @click="oneStep" class="stepBtn text-center">下一步</p>
+        </div>
+        <div v-if="step==2">
+          <p class="stepBtn flex text-center" @click="twoStep()">下一步</p>
+          <p class="stepBtn flex text-center" @click="prevStep()" style="background:#dfdfdf;color:#4e4e4e;">上一步</p>
+        </div>
+        <div v-if="step == 3">
+          <p class="stepBtn flex text-center" @click="$router.push('/my/center')">完成</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="manage">
+  <navHead title="管理收货地址"></navHead>
+  <div class="conent">
+    <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+      <yd-list theme="1" slot="list">
+        <div class="bg" v-for="(item,i) in address" :key="i">
+          <div class="personmsg flexd">
+            <span class="fw">{{item.consignee}}</span>
+            <span class="color-phone">{{item.reapMobile}}</span>
+          </div>
+          <p class="color-address">
+            收货地址:{{item.reapProvince+item.reapCity+item.reapCounty+item.detailAddress}}
+          </p>
+          <div class="personchange flexd">
+            <div class="perLeft flexd ">
+              <div v-if="item.isDefault>0" class="flexd ">
+                <icon-svg icon-class="duigou" class="aliIcon"></icon-svg>
+<p style="color:#ec642b;">默认地址</p>
+              </div>
+              <div v-else @click="setDefault(item)" class="flexd ">
+                <icon-svg icon-class="kongxinyuan" class="aliIcon"></icon-svg>
+                <p>设为默认</p>
+              </div>
+            </div>
+            <div class="iflex flexd">
+              <div @click="$router.push('/my/editAddress?id='+item.id)" class="change">
+                <icon-svg icon-class="iconfontbianji" class="addIcon"></icon-svg>
+                <p>编辑</p>
+              </div>
+              <div @click="delAddress(item,i)" class="change">
+                <icon-svg icon-class="weibiaoti--" class="addIcon"></icon-svg>
+                <p>删除</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </yd-list>
+      <!-- 数据全部加载完毕显示 -->
+      <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~</span>
+      <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+      <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+    </yd-infinitescroll>
+    <div v-if="pageSize<=0">
+      <div class="no_data flexd">
+        <div class="imgBox">
+          <img src="~@/public/img/yue.png" alt="加载中">
+        </div>
+        <p style="color:#737373;margin:18px 0;font-size:14px;">暂无地址</p>
+        <!-- <div style="color:#fff;background:#e42324;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/my/addAddress')">添加新地址</div> -->
+      </div>
+    </div>
+  </div>
+  <div class="btn text-center" @click="$router.push('/my/addAddress')">添加新地址</div>
+</div>

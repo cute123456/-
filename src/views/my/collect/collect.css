@@ -1,0 +1,101 @@
+.order {
+  width: 100%;
+  font-size: 14px;
+  color: #232323;
+}
+
+/* 内容 */
+
+.order .content {
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  box-sizing: border-box;
+  background: #f2f2f2;
+  -webkit-overflow-scrolling: touch;
+}
+
+.order .content::-webkit-scrollbar {
+  display: none;
+}
+
+.order .no_data {
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.order .no_data .imgBox {
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+}
+
+.order .no_data .imgBox img {
+  width: 100%;
+}
+
+.none {
+  display: none;
+}
+
+/* 热品推荐 */
+
+.goodsWrap {
+  padding: 4px 10px;
+}
+
+.goodsWrap .goodItem {
+  position: relative;
+  width: 50%;
+  float: left;
+}
+
+.mar10 {
+  margin: 5px;
+  box-shadow: 2px 2px 2px #f6f6f6;
+  background: #f9f9f9;
+}
+
+.goodImg {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 160px;
+}
+
+.goodImg img {
+  width: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  position: absolute;
+  top: 0;
+}
+
+.goodInfo {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  padding-bottom: 10px;
+  background: #f9f9f9;
+}
+
+.goodInfo .goodName {
+  color: #232323;
+  font-size: 15px;
+  margin: 10px 0 15px;
+  height: 40px;
+  line-height: 20px;
+}
+
+.goodInfo .price {
+  color: #ec642b;
+  font-size: 15px;
+}

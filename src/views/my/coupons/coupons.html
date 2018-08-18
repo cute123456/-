@@ -1,0 +1,42 @@
+<div class="coupon box">
+    <navHead title="我的代金券"></navHead>
+    <div class="tab-bg">
+        <div class="tab">
+            <div class="tab-item" :class="{'active':tabIndex==1}" @click="tabIndex=1">待使用</div>
+            <div class="tab-item" :class="{'active':tabIndex==2}" @click="tabIndex=2">已使用</div>
+        </div>
+    </div>
+    <yd-infinitescroll :callback="loadLoading" slot="-" ref="infinitescrollDemo">
+        <yd-list theme="1" slot="list">
+            <div class="tab-content" v-if="tabIndex==1">
+                <div class="content-list" v-for="item in list" :key="item.id">
+                    <div class="wrap" @click="toUse(item.id)">
+                        <div class="fisrt-t"><span>{{item.couponName}}</span>
+                            <p>元代金券</p>
+                        </div>
+                        <div class="second-t">消费满{{parseInt(item.faceValue)}}元即可领取</div>
+                        <div class="third-t">使用期限：{{item.startTime}}-{{item.expiredTime}}</div>
+                    </div>
+                </div>
+                <span style="display:block;margin: 60px auto; text-align: center;" v-if="totalA==0">暂无优惠卷</span>
+            </div>
+            <div class="tab-content tab-content-used" v-if="tabIndex==2">
+                <div class="content-list" v-for="item in listUsed" :key="item.id">
+                    <div class="wrap" style="margin-bottom:5px;">
+                        <div class="fisrt-t"><span>{{item.couponName}}</span>
+                            <p>元代金券</p>
+                        </div>
+                        <div class="second-t">消费满{{parseInt(item.faceValue)}}元即可领取</div>
+                        <div class="third-t">使用日期：{{item.startTime}}</div>
+                    </div>
+                </div>
+                <span style="display:block;margin: 60px auto; text-align: center;" v-if="totalB==0">暂无优惠卷</span>
+            </div>
+        </yd-list>
+
+        <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+        <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+    </yd-infinitescroll>
+
+</div>

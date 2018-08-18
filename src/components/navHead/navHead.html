@@ -1,0 +1,10 @@
+
+  <div class="navHead">
+    <div @click="back" class="back">
+      <img src="./img/left.png">
+    </div>
+    <div class="header-title">{{title}}</div>
+    <div class="right" v-if="show" @click="save">{{right}}</div>
+    <div class="right" v-else></div>
+  </div>
+

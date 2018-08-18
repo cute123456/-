@@ -1,0 +1,71 @@
+<div class="pay">
+    <navHead title="线下支付"></navHead>
+    <div class="content">
+        <div class="flexd" style="justify-content:center;padding:15px 10px;">
+            <icon-svg icon-class="dizhi1" class="aliIcon" style="flex: 0 0 20px;"></icon-svg>
+            <p class="text-left" style="font-size:13px;color:#2c2c2c;">
+                {{shopDetail.b_province}}{{shopDetail.b_city}}{{shopDetail.b_county}}{{shopDetail.b_detail_address}}
+            </p>
+        </div>
+
+        <!-- 商品信息 -->
+        <div class="product">
+          <div class="product1 flexd">
+            <p class="inputText">订单金额（元）</p>
+            <input class="inputMoney text-right" type="number" placeholder="请询问服务员后输入" v-model="inputMoney">
+          </div>
+        </div>
+
+        <!-- 支付方式 -->
+        <div class="method">
+            <div class="payTitle">
+                <span class="titleMes">支付方式</span>
+            </div>
+            <checker v-model="paymethod" default-item-class="demo2-item" selected-item-class="demo2-item-selected" disabled-item-class="demo2-item-disabled">
+                <div class="addinfo">
+                    <icon-svg icon-class="weixinzhifu" class="payIcon"></icon-svg>
+                    <div class="payName flex">
+                        <p style="color:#252525;font-size:15px;">微信</p>
+                        <p style="color:#909090;font-size:13px;">支付</p>
+                    </div>
+                    <checker-item value="微信"></checker-item>
+                </div>
+                <!-- <div class="addinfo">
+                    <img src="~@/public/img/home/豆子.png" class="payIcon">
+                    <div class="payName flex">
+                        <p style="color:#252525;font-size:15px;">易豆</p>
+                        <p style="color:#909090;font-size:13px;">总易豆数： {{parseInt(user.yi_peas)}}
+                            <span v-if="user.is_restrict == 1">易豆暂被冻结</span>
+                            <span v-if="user.is_restrict == 3">账号暂被冻结</span>
+                        </p>
+                    </div>
+                    <checker-item v-if="user.yi_peas <= 0 || user.is_restrict == 1 || user.is_restrict == 3 || shopDetail.b_use_beans == 0" value="易豆" disabled></checker-item>
+                    <checker-item v-else value="易豆"></checker-item>
+                </div> -->
+                <div class="addinfo">
+                    <icon-svg icon-class="yue-copy" class="payIcon"></icon-svg>
+                    <div class="payName flex">
+                        <p style="color:#252525;font-size:15px;">余额</p>
+                        <p style="color:#909090;font-size:13px;">余额： {{user.balance}}
+                            <span v-if="user.is_restrict == 3">账号暂被冻结</span>
+                        </p>
+                    </div>
+                    <checker-item v-if="user.balance <= 0 || user.is_restrict == 3" value="余额" disabled></checker-item>
+                    <checker-item v-else value="余额"></checker-item>
+                </div>
+            </checker>
+                
+            <div class="attention">
+                    <p>注意：</p>
+                    <p>1.当余额不够时，会自动以另一种方式付款。</p>
+                    <p>2.已阅读并且同意<span style="color:#ba3f40;">购买协议</span></p>
+                </div>
+        </div>
+    </div>
+
+    <div @click="payNotice()" class="payBtn text-center">
+        <p>{{lastPayMoney}}</p>
+        <!-- <p>易豆支付</p> -->
+    </div>
+
+</div>

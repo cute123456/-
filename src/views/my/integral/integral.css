@@ -1,0 +1,95 @@
+.myMoney .totalMoney {
+    position: relative;
+    top: 28px;
+    left: 0;
+    right: 0;
+    background: url('/static/img/center_bg.d80196e.png') no-repeat;
+    background-size: 100%;
+    z-index: 2;
+    /* border-bottom: 1px solid #dcdcdc; */
+}
+
+.money {
+    position: relative;
+    top: 28px;
+    /* height: 150px; */
+    color: #323232;
+    background: #fff;
+    border-radius: 8px;
+    margin: 17px 15px;
+    padding: 28px 0 23px;
+    box-shadow: 1px 1px 22px rgba(4, 0, 0, 0.08);
+}
+
+.myMoney .balance {
+    text-align: center;
+    font-size: 12px;
+    margin: 10px 0;
+    color: #c5c5c5;
+}
+
+.myMoney .recharge {
+    margin: 0 35px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: #fff;
+    background: linear-gradient(to right, #26b07b, #24af79);
+    box-shadow: 1px 3px 9px rgba(36, 175, 121, 0.18);
+}
+
+.myMoney .put-forward {
+    margin: 0 35px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: #fff;
+    background: linear-gradient(to right, #ef8d34, #ed6b2c);
+    box-shadow: 1px 3px 9px rgba(237, 110, 45, 0.18);
+}
+
+.myMoney .listBox {
+    padding: 56px 5% 50px;
+    flex-wrap: wrap;
+    background: #fff;
+}
+
+.listBox .balance-list {
+    border-bottom: 1px solid rgba(215, 215, 215, 0.3);
+    width: 100%;
+}
+
+.listBox .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.balance-list .fir {
+    margin: 18px 0 12px;
+}
+
+.balance-list .sec {
+    margin: 12px 0;
+}
+
+.fir p {
+    font-size: 16px;
+    color: #171717;
+    font-weight: bold;
+}
+
+.fir span {
+    font-size: 10px;
+    color: #171717;
+    opacity: 0.64;
+}
+
+.sec span {
+    font-size: 14px;
+    color: #171717;
+}
+
+.sec p {
+    font-size: 10px;
+    color: #171717;
+    opacity: 0.64;
+}

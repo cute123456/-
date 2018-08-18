@@ -1,0 +1,104 @@
+ .rechargeBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #ec3b1f;
+    z-index:-1;
+}
+
+.recharge .content {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80%;
+    color:#fff;
+}
+
+.recharge .tishi {
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.textImg {
+    margin-left: 8px;
+    max-height: 22px;
+}
+
+.recharge .charge {
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.recharge .charge .rechargeMoney {
+    width: 80%;
+    background: #f4f4f4;
+    padding: 0 10px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.recharge .charge .rechargeBtn {
+    flex: 0 0 80px;
+    background: #ffc239;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: #ffffff;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.recharge .charge input {
+    border: none;
+    outline: none;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.recharge .giftBox {
+    padding-top: 20px;
+}
+
+.recharge .addinfo {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    color: #fff;
+}
+
+.recharge .addinfo .giftName {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-family: 'SimHei';
+    background: #ffc239;
+    margin-left: 10px;
+}
+
+.recharge .demo2-item {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #fff url('~@/public/img/activity/active-btn1.png') no-repeat center;
+}
+
+.recharge .demo2-item-selected {
+    background: #fff url('~@/public/img/activity/active-btn2.png') no-repeat center;
+    background-size: 24px 24px;
+}
+
+.recharge .giftCon {
+    padding-left: 40px;
+    font-size: 13px;
+    margin: 10px 0;
+    line-height: 22px;
+}

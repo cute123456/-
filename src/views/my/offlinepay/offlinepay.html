@@ -1,0 +1,24 @@
+<div class="offlinepay">
+    <div class="payinfo">
+        <div class="bussiness">
+            <div class="name-part">
+                <div class="desc">付款给商家</div>
+                <div class="name">{{storeinfo.shopName?storeinfo.shopName:'暂无'}}</div>
+            </div>
+            <img class="logo" :src="storeinfo.companyPhoto?imgUrl+storeinfo.companyPhoto:'~@/public/img/center/icon.png'">
+        </div>
+        <div class="tip">请输入需要支付的金额（元）</div>
+        <div class="money"><span style="font-size: 30px;">￥</span>
+            <input style="width: calc(100% - 30px);" type="number" v-model="balance" />
+        </div>
+    </div>
+
+    <div class="pay-style">
+        支付方式：
+        <img class="style-icon" src="~@/public/img/center/wechaticon.png"> 微信支付
+    </div>
+
+    <div class="surebtn" @click="wxPay()">立即支付</div>
+    <!-- <fixBottom :check="5"></fixBottom> -->
+
+</div>

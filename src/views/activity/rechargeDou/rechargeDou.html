@@ -1,0 +1,61 @@
+
+
+<div class="recharge">
+    
+        <navHead title="充值易豆"></navHead>
+        <div class="rechargeBg">
+            <p class="title">充值金额</p>
+            <div>
+                <div class="writeWrap flexd">
+                    <icon-svg icon-class="qian" class="aliIcon" style="margin:0 12px;"></icon-svg>
+                    <input v-model="inputMoney" class="flex" type="number" placeholder="请输入自定义金额" style="font-size:16px;">
+                </div>
+                <p  style="padding:12px 8px 0;color:#7b7b7b;font-size:14px;">
+                  折算：<span class="red">{{realMoney}}</span>易豆
+                </p>
+                <p style="padding:8px 8px 14px;color:#7b7b7b;font-size:14px;">易豆说明：充值比例
+                    <span class="red">1：1</span>, 100即100元以上
+                    <span class="red">1：1.1</span>
+                </p>
+            </div>
+            <checker v-model="gift" class="wrap flexd" default-item-class="demo5-item" selected-item-class="demo5-item-selected">
+                <checker-item v-for="recharge in recharges" :key="recharge.id" :value="recharge">
+                    <p class="money" style="margin-top:14px;">充{{recharge.money}}</p>
+                    <p class="yi_money">得{{parseInt(recharge.yi_moeny)}}易豆</p>
+                </checker-item>
+            </checker>
+            <checker v-model="paymethod" default-item-class="demo2-item" selected-item-class="demo2-item-selected" style="padding-top:20px;">
+                <div class="addinfo">
+                    <icon-svg icon-class="weixinzhifu" class="payIcon"></icon-svg>
+                    <div class="payName flex">
+                        <p style="color:#252525;font-size:15px;">微信</p>
+                        <p style="color:#909090;font-size:13px;">充值</p>
+                    </div>
+                    <checker-item value="微信"></checker-item>
+                </div>
+            </checker>
+    
+        </div>
+    
+        <div class="bottom">
+            <div class="btn text-center" @click="recharge()">立即充值</div>
+            <p class="text text-center">点击立即充值，即表示您已经同意
+                <span style="color:#e42324;">《充值协议》</span>
+            </p>
+        </div>
+    
+        <yd-popup v-model="show1" position="center" width="90%">
+            <div class="text-center" style="position:relative;padding:20px 0;">
+                <div class="flexd " style="margin:0 10px;" @click="show1 = false">
+                    <p class="text-center flex" style="padding-left:23px;">关注公众号方可进行交易</p>
+                    <img src="~@/public/img/empty.png" style="width:26px;height:26px;">
+                </div>
+                <div style="width:70%;margin:10px auto;background:#fff;">
+                    <img src="~@/public/img/code.jpg" alt="此处放二维码" style="width:100%;height:100%;">
+                </div>
+                <p style="color:#000;font-size:16px;">长按识别二维码</p>
+                <p style="color:#ff8485;font-size:14px;">关注'亿货惠'</p>
+            </div>
+        </yd-popup>
+    
+    </div>

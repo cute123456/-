@@ -1,0 +1,97 @@
+<div class="user-name">
+    <navHead title="城市"></navHead>
+    <!-- <div style="overflow-y : auto;-webkit-overflow-scrolling: touch;"> -->
+    <div style="overflow-y:scroll;">
+        <mt-index-list style="background:#fff;margin-top:46px;">
+            <div class="dingwei flexd">
+                <icon-svg class="aliIcon" icon-class="location"></icon-svg>
+                <div style="margin-left:6px;">定位城市</div>
+            </div>
+            <div class="dingwei1 flexd">
+                <div class="flex text-left" style="line-height: 40px;font-size: 15px;" @click="reLocation(city)">{{city ? city : '定位中'}}</div>
+                <div class="text-right flexd" style="line-height: 40px;flex:1; justify-content: flex-end;">
+                    <icon-svg class="aliIcon" icon-class="zhongxindingwei" style="width: 21px;height: 21px;margin: 14px 8px;"></icon-svg>
+                    <div style="font-size: 15px;" @click="retryCurrentPosition">重新定位</div>
+                </div>
+            </div>
+            <div class="dingwei flexd" style="margin-top:0px;">
+                <icon-svg class="aliIcon" icon-class="aixin"></icon-svg>
+                <div style="margin-left:6px;">热门城市</div>
+            </div>
+            <div style="background: #ffffff;width: 100%;height: 200px;">
+                <dl class="subnav">
+                    <dd v-for="(each,index) in category" :key="index" @click="goShop(each)">
+                        <span>{{each}}</span>
+                    </dd>
+                </dl>
+            </div>
+
+            <mt-index-section index="A">
+                <mt-cell :title="each" v-for="(each,index) in A" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="B">
+                <mt-cell :title="each" v-for="(each,index) in B" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="C">
+                <mt-cell :title="each" v-for="(each,index) in C" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="D">
+                <mt-cell :title="each" v-for="(each,index) in D" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="E">
+                <mt-cell :title="each" v-for="(each,index) in E" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="F">
+                <mt-cell :title="each" v-for="(each,index) in F" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="G">
+                <mt-cell :title="each" v-for="(each,index) in G" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="H">
+                <mt-cell :title="each" v-for="(each,index) in H" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="J">
+                <mt-cell :title="each" v-for="(each,index) in J" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="K">
+                <mt-cell :title="each" v-for="(each,index) in K" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="L">
+                <mt-cell :title="each" v-for="(each,index) in L" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="M">
+                <mt-cell :title="each" v-for="(each,index) in M" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="N">
+                <mt-cell :title="each" v-for="(each,index) in N" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="P">
+                <mt-cell :title="each" v-for="(each,index) in P" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="Q">
+                <mt-cell :title="each" v-for="(each,index) in Q" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="R">
+                <mt-cell :title="each" v-for="(each,index) in R" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="S">
+                <mt-cell :title="each" v-for="(each,index) in S" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="T">
+                <mt-cell :title="each" v-for="(each,index) in T" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="W">
+                <mt-cell :title="each" v-for="(each,index) in W" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="X">
+                <mt-cell :title="each" v-for="(each,index) in X" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="Y">
+                <mt-cell :title="each" v-for="(each,index) in Y" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+            <mt-index-section index="Z">
+                <mt-cell :title="each" v-for="(each,index) in Z" :key="index" @click.native="goShop(each)"></mt-cell>
+            </mt-index-section>
+        </mt-index-list>
+    </div>
+</div>

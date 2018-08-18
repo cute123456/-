@@ -1,0 +1,159 @@
+<div class="shop">
+    <div class="div1">
+
+
+        <!-- 定位及搜索 -->
+        <div id="changeTop" class="searchBox" :class="[is_attention == true ?  'search' : 'top']">
+            <!-- <div @click="$router.push('/classifyDetail/city')" class="location" style="margin-left: 15px;">
+                <span>{{address ? address : '定位中'}}</span>
+                <icon-svg icon-class="xiasanjiaoxiangxiamianxing" class="aliIcon aliIcon-arrow"></icon-svg>
+            </div> -->
+            <div class="searchCon text-center" @click="$router.push('/classifyDetail/list')">
+                <div class="searchWrap">
+                    <img src="/static/imgs/search-icon.png" />
+                    <!--<icon-svg icon-class="sousuo" class="aliIcon searchIcon"></icon-svg>-->
+                    <div class="searchText flex text-left" style="font-size:11px;">请输入要搜索的关键字...</div>
+                </div>
+            </div>
+            <div class="scan" @click="qiandao()">
+                <icon-svg icon-class="qiandao" class="centerIcon"></icon-svg>
+                <div>
+                    <p style="font-size:10px;">签到</p>
+                    <p style="font-size:10px;">得10积分</p>
+                </div>
+
+            </div>
+        </div>
+        <div style="height:46px;"></div>
+        <!-- 轮播 -->
+        <div style="width:100%;margin: 0px auto;position: relative;">
+            <swiper loop auto dots-position="center" height="160px" :interval='3000' style="width:100%;">
+                <swiper-item style="width:100% " v-for="(value,index) in lists" :key="value.id" @click.native="goPage(value)">
+                    <!-- <div class="goodImg" v-if="value.src" style="height:160px;" :style=" 'background:url(' + value.bannerSrc +') no-repeat ; background-size:100% 100%;background-position:center;'"></div> -->
+                    <a :href="value.bannerLink">
+                        <img style="width:100%;" :src="value.bannerSrc" alt="">
+                    </a>
+                </swiper-item>
+            </swiper>
+            <div class="home-white-bg">
+                <img src="/static/imgs/home-white-bg.png" />
+            </div>
+        </div>
+    </div>
+    <!-- 滚动公告 -->
+    <div class="roll-notice">
+        <div class="notice-title">商城<span>快报</span></div>
+        <yd-rollnotice autoplay="2000">
+            <yd-rollnotice-item v-for="item in noticeList" :key="item.id">
+                <span style="font-size:14px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" @click="$router.push('/activity/noticeDetail?id='+item.id)">{{item.title}}</span>
+            </yd-rollnotice-item>
+
+        </yd-rollnotice>
+    </div>
+    <!-- 一级分类 -->
+    <div class="category">
+        <div class="home-class" v-for="item in homeClass" :key="item.id" @click="$router.push('/classify/list?id=' + item.id)">
+            <img :src="imgUrl+item.typeScr?imgUrl+item.typeScr:'/static/imgs/home-class1.png'" />
+            <p>{{item.goodsTypeTitle}}</p>
+        </div>
+        <div class="home-class" @click="$router.push('/classify/list?id='+classId)">
+            <img src="/static/imgs/home-class3.png" />
+            <p>全部</p>
+        </div>
+    </div>
+    <img class="banner" @click="$router.push('classifyDetail/list?id=126')" src="/static/imgs/home-ad.jpg">
+    <!-- 品牌体验 -->
+    <div class="test">
+        <div class="test-title">品牌体验</div>
+        <div class="test-imgs">
+            <img @click="$router.push('classifyDetail/detail?id=86')" src="/static/imgs/20180712101001.png" class="test-img-left">
+            <img @click="$router.push('classifyDetail/detail?id=233')" src="/static/imgs/20180712101018.png" class="test-img-right1">
+            <img @click="$router.push('classifyDetail/detail?id=236')" src="/static/imgs/20180712101026.png" class="test-img-right2">
+        </div>
+    </div>
+    <!-- 精品推荐 -->
+    <div class="tuijian-box" style="background:#fff;">
+        <div class="hotgood flexd">
+            <div class="flex" style="display:flex;align-items:center">
+                <div class="changeTitle">精品推荐</div>
+            </div>
+            <!-- <div @click="$router.push('/classifyDetail/list')" class="more flex text-right">
+                <div style="display:flex;align-items:center;">更多
+                    <icon-svg icon-class="you" class="aliIcon" style="width:14px;height:14px;"></icon-svg>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="goodsWrap">
+
+        <yd-infinitescroll :callback="loadListGoods" :scroll-top="false" slot="-" ref="infinitescrollDemo">
+            <yd-list theme="1" slot="list" class="goods-box">
+                <div class="goodItem" v-for="val in days" :key="val.id" @click="$router.push('/classifyDetail/detail?id=' + val.id)">
+                    <div>
+                        <div class="goodImg" style="height:200px;" :style=" 'background:url(' + imgUrl + val.goodsThumb +') no-repeat ; background-size:cover;background-position:center;border:1px solid #fafafa'"></div>
+                        <div class="goodInfo" id="box">
+                            <p class="goodName text-twowrap">{{val.goodsName}}</p>
+                            <div class="price-info">
+                                <div class="price">
+                                    <span class="price" style="font-size:12px;">￥</span>
+                                    <span class="price">{{val.goodsPrice}}</span>
+                                </div>
+                                <span class="xiaoliang">{{val.goodsSalesVolume}}人付款</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <!-- <span slot="doneTip">没有数据啦~~</span> -->
+
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+        </yd-infinitescroll>
+    </div>
+    <img @click="$router.push('classifyDetail/list?id=129')" src="/static/imgs/20180712104722.png" style="padding: 0 16px;width: 100%;margin: 10px 0 20px 0;">
+    <!-- 好礼送不停 -->
+    <div class="test">
+        <div class="test-title">好礼送不停</div>
+        <div class="test-imgs">
+            <img @click="$router.push('classifyDetail/detail?id=218')" src="/static/imgs/20180712105059.png" class="test-img-left">
+            <img @click="$router.push('classifyDetail/detail?id=215')" src="/static/imgs/20180712105108.png" class="test-img-right1">
+            <img @click="$router.push('classifyDetail/detail?id=213')" src="/static/imgs/20180712105118.png" class="test-img-right2">
+        </div>
+    </div>
+    <!-- 推荐店铺 -->
+    <div class="shop-box" style="background:#fff;" v-if="this.days.length >= this.pageSize">
+        <yd-infinitescroll :callback="loadListShop" :scroll-top="false" ref="infinitescrollDemo">
+            <yd-list theme="1" slot="list" class="goods-box">
+                <div class="flex hotgood">
+                    <div class="changeTitle">推荐店铺</div>
+                </div>
+                <div class="shop-list" v-for="item in shopList" :key="item.id">
+                    <div class="shop-title">
+                        <div class="shop-left">
+                            <div>
+                                <img :src="item.companyStorePhoto?imgUrl+item.companyPhoto:'/static/imgs/goods2.png'" style="width:64px;height:64px;border-radius:50%;"> </div>
+                            <div class="shop-text">
+                                <h1>{{item.shopName}}</h1>
+                                <p>{{item.address}}</p>
+                            </div>
+                        </div>
+                        <div @click="$router.push('/find/storeInformation?id=' + item.id)" class="shop-btn">
+                            <p>进店</p>
+                        </div>
+                    </div>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <!-- <span slot="doneTip">没有数据啦~~</span> -->
+
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+        </yd-infinitescroll>
+    </div>
+
+    <fixBottom :check="1"></fixBottom>
+</div>

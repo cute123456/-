@@ -1,0 +1,10 @@
+<div class="notice-box">
+    <navHead title="最新公告"></navHead>
+    <div class="notice-list" v-for="item in noticeList" :key="item.id" @click="$router.push('/activity/noticeDetail?id='+item.id)">
+        <img :src="item.src">
+        <h1>{{item.title}}</h1>
+        <p>发布时间：{{item.createdAt}}</p>
+
+    </div>
+
+</div>

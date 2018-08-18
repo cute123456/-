@@ -1,0 +1,17 @@
+<div class="moreUpload">
+
+    <div v-for="image in upImg" :key="image.id" class="showImg">
+        <img :src="HTTP + image" class="pic">
+        <img @click="editImage(image)" class="closeBtn" src="./img/cancel.png">
+    </div>
+
+    <div class="imgLabel">
+        <img class="uploadBtn" src="./img/upload.png">
+        <span>上传图片</span>
+        <label>
+            <input v-if="camera" accept="image/*" name="inputFile" @change="fileChange" type="file" capture="camera">
+            <input v-else accept="image/*" name="inputFile" @change="fileChange" type="file">
+        </label>
+    </div>
+
+</div>

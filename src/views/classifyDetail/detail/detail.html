@@ -1,0 +1,148 @@
+<div>
+    <div class="open-img" v-if="!showImg" @click="showImg=true">
+        <yd-slider :show-pagination="false" :index="openIndex">
+            <yd-slider-item v-for="item,index in goodsDetail.imgs" :key="item.value">
+                <img :src="imgUrl + item">
+            </yd-slider-item>
+        </yd-slider>
+    </div>
+    <div v-if="showImg">
+        <div class="detail-box">
+            <!-- 轮播图 -->
+            <swiper loop auto dots-position="center" :interval='3000' class="swiper-box" height="350px" style="width:80%;margin:0 auto;">
+                <swiper-item v-for="item,index in goodsDetail.imgs" :key="item.value">
+                    <img style="width:100%;margin:0px;" class="caro" v-lazy="imgUrl + item" @click="imgScc(index)">
+                </swiper-item>
+            </swiper>
+
+            <div class="goodMes">
+                <p class="text-twowrap" style="font-size:16px;">{{goodsDetail.goodsName}}</p>
+                <div class="goodPrice">
+                    <div class="detail-money">
+                        <span style="font-size:15px;">￥</span>{{goodsDetail.goodsPrice}}</div>
+                    <div v-if="data.hidden_price == 1 || data.is_join_yigoods == 0"></div>
+                    <div class="flexd" style="padding:0 10px;font-size:14px;">
+                        <div class="text-left" style="color:#919191;font-size:14px;">库存:{{goodsDetail.goodsStocks}}</div>
+                        <div class="flex text-right text-twowrap" @click="$router.push('/find/storeInformation?id=' + goodsDetail.shopId)">
+                            <img v-if="data.business.b_img" :src="HSrc(data.business.b_img)" class="aliIcon">
+                            <icon-svg v-else icon-class="dianpu" class="aliIcon"></icon-svg>
+                            <span class="titleName ">{{goodsDetail.shopName}}</span>
+                            <icon-svg icon-class="xiangyou" style="width:10px;height:10px;"></icon-svg>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="good-detail text-left">
+                <div class="choice" @click="popupVisible = true">
+                    <span style="font-size: 15px;" v-if="isChoice == false">请选择规格</span>
+                    <span style="font-size: 15px;" v-if="isChoice == true">已选择
+            <p style="display:inline-block;" v-for="value in model" v-if="getLength(model.length)">
+              <span>{{value.ty_name}}</span>:
+                    <span>{{value.ty_style}},</span>
+                    </p>数量:{{quantity}}</span>
+                    <span class="rt">
+            <icon-svg icon-class="arrow-right" class="aliIcon"></icon-svg>
+          </span>
+                </div>
+                <div style="background:#fbfbfb;">
+                    <div class="comment">
+                        <span>用户评论({{commentList}})</span>
+                        <span @click="$router.push('/classifyDetail/appraise?id=' + id)" style="font-size:13px;color:#8f8f8f;">查看全部 &nbsp;
+              <icon-svg icon-class="you" class="aliIcon" style="width:15px;height:15px;"></icon-svg>
+            </span>
+                    </div>
+                    <!-- <div v-if="list" style="background:#fbfbfb;">
+          <div style="display: flex;;">
+          </div>
+          <div style="font-size: 14px;padding:0 15px;">{{list.rReview}}</div>
+          <div style="padding: 10px 15px;color: #848c99;font-size:14px;">{{getDate(list.createdAt)}}</div>
+        </div> -->
+
+                </div>
+
+                <div class="good-title">商品详情</div>
+                <div class="description" v-html="goodsDetail.goodsDetail"></div>
+            </div>
+        </div>
+
+        <!--选择规格弹出框-->
+        <div>
+            <popup v-model="popupVisible">
+                <div class="popup0 modal-content">
+                    <group>
+                        <div class="popTop" style="margin-top:10px;">
+                            <img v-lazy="imgUrl + goodsDetail.goodsThumb">
+                            <div class="popTitle">
+                                <p class="name">{{goodsDetail.goodsName}}</p>
+                                <p class="price">￥{{money}}</p>
+                            </div>
+                            <icon-svg @click.native="close()" icon-class="close" class="iconClose aliIcon"></icon-svg>
+                        </div>
+                        <!-- <div v-if="goodsDetail.specification.length>0"> -->
+                        <div class="popItem" v-for="(goodsStyle, index) in goodsDetail.specification" :key="goodsStyle.id" v-if="getLength(goodsDetail.specification.length)">
+                            <checker v-model="model[index]" @on-change="changeSize()" disabled-item-class="demo5-disabled" default-item-class="demo5-item" selected-item-class="demo5-item-selected">
+                                <h5 class="title">{{goodsStyle.specificationTitle}}</h5>
+                                <checker-item v-for="(specification, key) in goodsStyle.specificationNames" :key="specification.id" :value="specification">{{specification}}</checker-item>
+                            </checker>
+                        </div>
+                        <!-- </div> -->
+                        <div class="popItem ordernum">
+                            <h5 class="titleNumber">购买数量</h5>
+                            <div class="quantity rt">
+                                <a @click="changeQuantity(1)">+</a>
+                                <input type="number" readonly v-model="quantity" style="color:#000;">
+                                <a @click="changeQuantity(-1)" style="line-height:21px;">-</a>
+                            </div>
+                        </div>
+                        <div class="confirmBtn" @click="appointment()">
+                            <x-button class="btn" type="warn">{{popBtn == 1 ? '加入购物车' : '立即下单'}}</x-button>
+                        </div>
+                    </group>
+                </div>
+            </popup>
+        </div>
+
+        <!-- 底部下单 -->
+        <div class="detail-bottom" v-if="offline == 1">
+            <div @click="collect()" class="cart text-center" v-if="isCollected" style="flex:0 0 30%;">
+                <icon-svg icon-class="shoucang" class="icon"></icon-svg>
+                <br>收藏
+            </div>
+            <div @click="collect()" class="cart text-center" v-if="!isCollected" style="flex:0 0 30%;">
+                <icon-svg icon-class="shoucang1" class="icon"></icon-svg>
+                <br>已收藏
+            </div>
+            <div @click="popupVisible = true" class="flex instant-order text-center">
+                立即预约
+            </div>
+        </div>
+
+        <div class="detail-bottom" v-else>
+            <a class="flex shop text-center" :href="'tel:'+telDetail" style="color:#585858;text-decoration:none;">
+                <icon-svg icon-class="kefu-copy" class="icon"></icon-svg>
+                <br>联系商家
+            </a>
+            <div @click="$router.push('/shopCar')" class="flex cart text-center">
+                <icon-svg icon-class="gouwuche" class="icon"></icon-svg>
+                <br>购物车
+            </div>
+            <div @click="collect()" class="flex cart text-center" v-if="isCollected">
+                <icon-svg icon-class="shoucang" class="icon"></icon-svg>
+                <br>已收藏
+            </div>
+            <div @click="collect()" class="flex cart text-center" v-if="!isCollected">
+                <icon-svg icon-class="shoucang1" class="icon"></icon-svg>
+                <br>收藏
+            </div>
+            <div class="flex instant-order text-center" @click="popupVisible = true; popBtn = 1" style="background:orange;">
+                加入购物车
+            </div>
+            <div class="flex instant-order text-center" @click="popupVisible = true; popBtn = 2">
+                立即下单
+            </div>
+        </div>
+
+    </div>
+</div>

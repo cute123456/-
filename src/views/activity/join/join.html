@@ -1,0 +1,45 @@
+<div class="join">
+    <!-- <div class="bgBox"> -->
+    <!-- <div style="padding:16% 0;"></div> -->
+    <div class="messageWrap" >
+        <div class="message" >
+            <p class="title text-center">报名活动</p>
+            <div class="messageItem">
+                <p class="blue">姓名：</p>
+                <input class="messageText" type="text" v-model.trim="member.name">
+            </div>
+            <div class="messageItem">
+                <p class="blue">手机：</p>
+                <input class="messageText" type="number" v-model.trim="member.phone">
+            </div>
+            <div class="messageItem">
+                <p class="blue">公司：</p>
+                <input class="messageText" type="text" v-model.trim="member.compony">
+            </div>
+            <div class="messageItem">
+                <p class="blue">易货商品：</p>
+                <input class="messageText" type="text" v-model.trim="member.goodName">
+            </div>
+            <div class="messageItem">
+                <p class="blue">易货价值：</p>
+                <input class="messageText" type="text" v-model.trim="member.goodPrice">
+            </div>
+            <div class="messageItem">
+                <p class="blue">参会人数：</p>
+                <input class="messageText" type="number" v-model.trim="member.personNum">
+            </div>
+        </div>
+        <div class="notice">
+            <p>1.活动时间：2017.12.23-2017.12.30</p>
+            <p>2.活动内容：线上活动时间内报名，12.31日到指定地点参加活动，赢取活动好礼。</p>
+            <p>3.活动地点：江西省南昌市青山湖大道</p>
+        </div>
+        <div class="signBtn text-center" @click="sign()">立即报名</div>
+    </div>
+
+    <!-- <div v-else>
+        活动
+    </div> -->
+
+
+</div>

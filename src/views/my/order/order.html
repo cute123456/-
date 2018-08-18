@@ -1,0 +1,99 @@
+<div class="order">
+    <navHead title="我的订单"></navHead>
+    <div class="nav" :style="{left:leftNum+'px'}">
+        <span class="statusItem" v-for="item,index in menu" :class="Flag == item.id ? 'active' : '' " @click="changeOrder(item.id,index)">{{item.name}}</span>
+    </div>
+    <div class="content">
+        <div v-if="pageSize<=0">
+            <div class="no_data flexd">
+                <div class="imgBox">
+                    <img src="~@/public/img/dingdan_no.png" alt="加载中">
+                </div>
+                <p style="color:#737373;margin:18px 0;font-size:14px;">暂无订单</p>
+                <div style="color:#fff;background:#ec642b;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/')">再去逛逛 </div>
+            </div>
+        </div>
+        <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+            <div v-if="pageSize>0">
+
+            </div>
+            <yd-list theme="1" slot="list">
+                <div class="lists">
+                    <div class="list" v-for="orders in orderLists">
+                        <div class="list-con" @click="$router.push('/my/orderDetail?orderId=' + orders.id)">
+                            <div class="top flexd">
+                                <p>
+                                    <icon-svg icon-class="dianpu" class="aliIcon"></icon-svg>
+                                    <span class="text-nowrap flex">{{orders.business && orders.business.shopName ? orders.business.shopName : '加载中'}}</span>
+                                </p>
+                                <span class="topRight" v-if="orders.orderStatus == 0">待支付</span>
+                                <span class="topRight" v-if="orders.orderStatus == 1">待发货</span>
+                                <span class="topRight" v-if="orders.orderStatus == 2">待收货</span>
+                                <span class="topRight" v-if="orders.orderStatus == 3">待评价</span>
+                                <span class="topRight" v-if="orders.orderStatus == 4">已完成</span>
+                                <div v-if="orders.aftersale && orders.orderStatus ==5">
+                                    <span class="topRight" v-if="orders.aftersale.status == 0">待售后</span>
+                                    <span class="topRight" v-if="orders.aftersale.status == 1">已通过</span>
+                                    <span class="topRight" v-if="orders.aftersale.status == 2">已拒绝</span>
+                                    <span class="topRight" v-if="orders.aftersale.status == 3">已退款</span>
+                                </div>
+                                <span class="topRight" v-if="!orders.aftersale && orders.orderStatus ==5">未审核</span>
+                                <span class="topRight" v-if="!orders.aftersale && orders.orderStatus ==6">已通过</span>
+                            </div>
+                            <div class="item">
+                                <div class="left" v-if="orders.oGoods && orders.oGoods.goods && orders.oGoods.goods.goodsThumb">
+                                    <img class="itemImg" v-lazy="imgUrl + orders.oGoods.goods.goodsThumb">
+                                </div>
+
+                                <div class="right flex text-left">
+                                    <p class="itemName text-twowrap" v-if="orders.oGoods && orders.oGoods.goods && orders.oGoods.goods.goodsName">
+                                        {{orders.oGoods.goods.goodsName ? orders.oGoods.goods.goodsName : ''}}
+                                    </p>
+                                    <p class="itemColor">
+                                        <span>规格/数量：{{orders.oGoods.goodsSpecification}}×{{orders.oGoods.goodsQuantity}}</span>
+                                    </p>
+                                    <p class="money" v-if="orders.oGoods && orders.oGoods.goodsPrice">
+                                        <span style="font-size:13px;">￥</span>{{orders.oGoods.goodsPrice}}</p>
+                                    <!-- <p class="rightNum flexd">
+                    <span class="price flexd" v-if="orders.oGoods ">
+                      <img src="~@/public/img/订单_02.png" sstyle="max-height:17px;width:17px;">
+                      <span class="priceNum">{{orders.oGoods.og_yprice}}</span>
+                    </span>
+                    <span class="price flexd" v-if="orders.oGoods && orders.oGoods.og_count">
+                      <span style="font-size:14px;">x{{orders.oGoods.og_count}}</span>
+                    </span>
+                  </p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="foot ">
+                            <p class="footTop">
+                                共计{{orders.goodsCount}}件商品 合计:￥
+                                <span style="font-size:17px;">{{parseFloat(orders.orderTotalPrice)}}</span>
+                            </p>
+                            <div class="bottom flexd">
+                                <span v-if="orders.orderStatus == 0" @click="goPage(orders)">付款</span>
+                                <span v-if="orders.orderStatus == 1" @click="$router.push('/orders/refund?orderId=' + orders.id)">退款</span>
+                                <span v-if="orders.orderStatus == 0" @click="cancelOrder(orders)">删除订单</span>
+                                <!-- <span v-if="orders.orderStatus == 1" @click="$router.push('/my/refund?orderId=' + orders.id + '&status=' + orders.orderStatus)">申请退款</span> -->
+                                <span v-if="orders.orderStatus == 2" @click="confirmGoods(orders)">确认收货</span>
+                                <span v-if="orders.orderStatus == 4" @click="$router.push('/orders/comment?orderId=' + orders.id)">评论</span>
+                                <span v-if="orders.orderStatus == 4 && orders.o_complaints == null " @click="$router.push('/orders/complaints?orderId=' + orders.id)">售后</span>
+                                <span v-if="orders.orderStatus == 4 || orders.orderStatus == 5" @click="delOrder(orders)">删除</span>
+                            </div>
+                        </div>
+                        <div class="list-border"></div>
+                    </div>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~~~</span>
+
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <div slot="loadingTip">
+                <img src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" /> 加载中
+            </div>
+        </yd-infinitescroll>
+
+    </div>
+</div>

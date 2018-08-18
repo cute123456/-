@@ -1,0 +1,81 @@
+<!-- 推荐店铺 -->
+<div class="shop-box" style="background:#fff;">
+    <navHead title="商铺资料"></navHead>
+    <div class="shop-top">
+        <img :src="HSrc(HTTP+shopDetail.businessPhoto)">
+        <div>
+            <p>{{shopDetail.shopName}}</p>
+            <p>商家地址：{{shopDetail.province}}{{shopDetail.city}}{{shopDetail.country}}{{shopDetail.address}}</p>
+            <p>联系电话：<a :href="'tel:'+shopDetail.shopMobile">{{shopDetail.shopMobile}}</a></p>            
+        </div>
+    </div>
+    <!-- <div class="shop-title">
+        <div class="shop-left">
+            <img class="store-tb" src="/static/imgs/home-class1.png">
+            <p>{{shopDetail.address}}</p>
+        </div>
+        <a :href="'tel:' + shopDetail.shopMobile" class="text-right">
+            <div class="shop-btn">
+                <img class="store-tb" src="/static/imgs/home-class1.png">
+                <p>电话</p>
+            </div>
+        </a>
+    </div> -->
+    <div class="shop-list">
+        <div class="list-tab">
+            <h1 @click="changType(0)">
+                <p :class="type===0?'tabActive':'tab'">店内商品</p>
+            </h1>
+            <h1 @click="changType(1)">
+                <p :class="type===1?'tabActive':'tab'">评价</p>
+            </h1>
+        </div>
+        <div v-if="type==0">
+            <yd-infinitescroll :callback="loadGoods" ref="goods">
+                <div class="shop-top goods-box" v-for="item in goodsList" :key="item.id" slot="list" @click="$router.push('/classifyDetail/detail?id=' + item.id)">
+                    <img :src="HSrc(item.goodsThumb)">
+                    <div>
+                        <p>{{item.goodsName}}</p>
+                        <h1>
+                            <span>￥</span>{{item.goodsPrice}}</h1>
+                        <h2>{{item.goodsSalesVolume}}人已购买</h2>
+                    </div>
+                </div>
+                <span slot="doneTip">没有数据啦~~</span>
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+            </yd-infinitescroll>
+        </div>
+        <div v-if="type==1">
+            <yd-infinitescroll :callback="loadComment" ref="infinitescrollDemo">
+                <div class="evaluate" v-for="item in commentList" :key="item.id" slot="list">
+                    <div class="bottom-title">
+                        <img :src="HSrc(item.avatar)">
+                        <h1>{{item.nike}}</h1>
+                    </div>
+                    <div class="specifications">
+                        <span>{{item.createdAt}}</span>
+                        <!-- <span>{{item.colorName}}</span>
+                        <span>{{item.colorValue}}</span>
+                        <span>{{item.sizeName}}</span>
+                        <span>{{item.sizeValue}}</span> -->
+                    </div>
+                    <p class="evaluate-content">{{item.rReview}}</p>
+                    <div class="shop-bottom" v-if="item.images.length>0">
+                        <div class="bottom-content" v-for="image in item.images">
+                            <img :src="HSrc(image)">
+                            <!-- <div class="bottom-mes" style="background: url(/static/imgs/pingjia.png); background-size: cover;">
+                                <p>￥500</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- 数据全部加载完毕显示 -->
+                <span slot="doneTip">没有数据啦~~</span>
+
+                <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+            </yd-infinitescroll>
+        </div>
+    </div>
+</div>

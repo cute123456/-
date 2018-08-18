@@ -1,0 +1,68 @@
+<div class="classifyList">
+  <!---->
+  <!-- 头部搜索 -->
+  <div class="searchCon flexd text-center">
+    <div class="back" @click="$router.go(-1)" style="margin-right:12px;">
+      <icon-svg icon-class="fanhui" class="aliIcon"></icon-svg>
+    </div>
+    <div class="searchWrap flex">
+      <svg data-v-8c6c7852="" aria-hidden="true" class="svg-icon aliIcon searchIcon text-center" @click="search(message)">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-sousuo"></use>
+      </svg>
+      <input type="text" class="searchText flex text-left" placeholder="搜索你需要的服务、商品..." v-model="message">
+    </div>
+    <div class="search" @click="search(message)">搜索</div>
+  </div>
+
+
+  <!-- 搜索展示的列表 -->
+  <div style="position:absolute;top:45px;bottom:0;left:0;right:0;overflow-y:auto;padding:0 0 16px;background:#fff; -webkit-overflow-scrolling: touch;">
+    <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+      <yd-list theme="1" slot="list">
+        <div class="col-list">
+          <div class="col-item" v-for="(value,index) in searchList" :key="index" @click="$router.push('/classifyDetail/detail?id=' + value.id)">
+            <div class="col-list-item">
+              <div class="col-list-item-left">
+                <img v-lazy="imgUrl + value.goodsThumb">
+              </div>
+              <div class="col-list-item-right">
+                <div class="name text-twowrap">{{value.goodsName}}</div>
+                <div class="count">库存: {{value.goodsStocks}}</div>
+                <div class="shopper">
+                  <span class="flex">
+                    <span class="count">价格：{{value.goodsPrice}}</span>
+                    <!-- <icon-svg icon-class="sangedian" class="goodIcon aliIcon "></icon-svg> -->
+                  </span>
+                  <p class="flex text-right" v-if="value.hidden_price == 0">
+                    <span class="price" style="font-size:12px;">￥</span>
+                    <span class="price" style="font-size:15px;">{{value.g_price}}</span>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </yd-list>
+
+      <!-- 数据全部加载完毕显示 -->
+      <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~~</span>
+
+      <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+      <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+    </yd-infinitescroll>
+    <div v-if="searchList.length<=0">
+      <div class="no_data flexd">
+        <div class="imgBox">
+          <img src="~@/public/img/yue.png" alt="加载中">
+        </div>
+        <p style="color:#737373;margin:18px 0;font-size:14px;">暂无数据</p>
+        <div style="color:#fff;background:#ec642b;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/')">去逛逛</div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

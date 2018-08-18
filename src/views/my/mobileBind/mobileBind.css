@@ -1,0 +1,61 @@
+.login{
+    background: #f8f8f8;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    width: 100%;
+}
+.head{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    line-height: 50px;
+    z-index: 22;
+    color: #525252;
+    font-size: 16px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px #d9d9d9;
+    box-shadow: 0 1px 4px #d9d9d9;
+}
+.login .lists{
+    width: 94%;
+    margin: auto;
+    background: #fefefe;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 15px;
+}
+.login .list{
+    border-bottom: .5px solid #e6e6e6;
+    padding: 15px 10px;
+}
+
+.login .list-btm{
+    justify-content: space-around;
+    padding: 15px 10px;
+}
+.login .title{
+    flex: 0 0 60px;
+    color: #474747;
+}
+
+.login .btn{
+    color: #9e9e9e;
+    border-left: 1px solid #9e9e9e;
+    font-size: 14px;
+}
+/* 绑定手机号 */
+.login .subBtn{
+    background: #ee7d31;
+    color: #fff;
+    text-align: center;line-height: 50px;
+    font-size: 17px;
+    width: 92%;
+    margin: 80px auto 0;
+    border-radius: 8px;
+}
+.login .yd-checkbox-icon{
+    color: #b10104!important;
+}

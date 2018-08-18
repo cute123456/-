@@ -1,0 +1,44 @@
+a, a:hover {
+    color: black;
+  }
+  
+.fr{
+float: right;
+}
+.overwrite-title-demo {
+    margin-top: 5px;
+  }
+  
+  #share-box {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 16px;
+  }
+  
+  .share-img{  
+    border-radius:50%;
+    border:solid 1px #f1f1f1;
+    display:inline-block;
+    position:absolute;
+    top:0;
+  }
+  
+  .share-left{
+    left:0;
+  }
+  
+  .share-right{
+    right:0;
+  }
+  
+  .share-exchange {
+    position:absolute;
+    left:48%;
+    width: 30px;
+    height: 100px;
+    line-height: 100px;
+    font-size:16px;
+  }

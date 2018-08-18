@@ -1,0 +1,10 @@
+<div class="searchCon flexd text-center">
+	<img @click="$router.go(-1)" src="./img/left.png" class="aliIcon" style="margin-right:12px;">
+	<div class="searchWrap flex">
+		<div class="searchIcon">
+			<img src="./img/search.png" class="text-center" @click="searchBtn()" style="width:24px;height:24px;">
+		</div>
+		<input v-bind:value="value" v-on:input="updateValue($event.target.value)" type="text" class="searchText flex text-left" placeholder="搜索你需要的服务、商品..." ref="input" autofocus >
+	</div>
+	<div class="search" @click="searchBtn()">搜索</div>
+</div>

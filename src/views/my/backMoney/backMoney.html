@@ -1,0 +1,40 @@
+<div class="backMoney">
+    <navHead title="余额提现"></navHead>
+    <div class="balance-box back-box">
+        <h1>提现金额</h1>
+        <div class="price" style="display:flex;">
+            <span>￥</span>
+            <input type="number" placeholder="0.00" v-model.trim="money" style="width:100%; flex:1">
+        </div>
+        <div class="balance">
+            <p>当前账户余额:{{balance}}</p>
+            <span @click="money=balance">全部提现</span>
+        </div>
+    </div>
+
+    <div class="inputBox back-box">
+        <div class="back-list">
+            <h1>提现方式</h1>
+            <div style="margin-bottom: 20px;">
+                <yd-radio-group v-model.trim="payType" color="#F00">
+                    <!-- <img src="../../../public/img/bank.png"> -->
+                    <yd-radio val="银行卡"></yd-radio>
+                </yd-radio-group>
+            </div>
+            <input type="text" v-model.trim="payAccount" placeholder="请输入银行卡帐号...">
+        </div>
+        <div class="back-list list-style">
+            <h1>手机号：</h1>
+            <input type="text" v-model.trim="phone" placeholder="请输入手机号">
+        </div>
+        <div class="back-list list-style">
+            <h1>姓名：</h1>
+            <input type="text" v-model.trim="name" placeholder="请输入姓名">
+        </div>
+        <div class="back-list list-style">
+            <h1>开户行：</h1>
+            <input type="text" v-model.trim="bankName" placeholder="请输入开户行">
+        </div>
+        <div @click="bankCommit()" :class="{disable:disable}" class="btn">提交</div>
+    </div>
+</div>

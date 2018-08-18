@@ -1,0 +1,90 @@
+<div class="shop">
+  <navHead title="商铺资料"></navHead>
+  <div class="content">
+    <div class="photoTop ">
+      <img v-if="shopDetail.businessPhoto" :src="HSrc(HTTP+shopDetail.businessPhoto)" class="photo">
+      <img v-else src="~@/public/img/logo.jpg" alt="店铺门头图" class="photo">
+      <div class="flex text-left mes">
+        <p class="text-twowrap" style="font-size:14px;color:#171717;">{{shopDetail.shopName}}</p>
+        <p style="color:#535353;font-size:13px;">所属类别：{{shopDetail.type == 0 ? '个人' : '企业'}}</p>
+      </div>
+    </div>
+    <div class="photoTop flexd" style="justify-content:space-around;padding:15px 10px;">
+      <icon-svg icon-class="dizhi1" class="aliIcon" style="flex: 0 0 20px;"></icon-svg>
+      <p class="text-left flex" style="border-right:solid 1px #d3d3d3;font-size:13px;">
+        {{shopDetail.province}}{{shopDetail.city}}{{shopDetail.county}}{{shopDetail.address}}
+      </p>
+      <a :href="'tel:' + shopDetail.shopMobile" class="text-right" style="flex:0 0 60px;display:inline-block;font-size:13px;">
+        <icon-svg icon-class="tele" class="aliIcon"></icon-svg>
+        电话
+      </a>
+    </div>
+    <div class="shopComment">
+      <div style="border-bottom:solid 1px #c1c1c1;font-size:14px;padding:0 16px 10px;">用户评价({{commendLists.length}})</div>
+      <!-- <div class="text-left" v-if="totalPage <= 0" style="font-size:14px;color:#929292;padding:20px;">暂无评价~~</div> -->
+      <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+        <yd-list theme="1" slot="list">
+          <div style="width:100%;">
+            <div class="list" v-for="(commend ,i) in commendLists" :key="i">
+              <div class="flexd listTop">
+                <div class="flexd topLeft">
+                  <img v-if="commend.rReviewImgs" v-lazy="HSrc(commend.rReviewImgs)">
+                  <img v-else src="~@/public/img/logo.jpg">
+                  <img src="~@/public/img/logo.jpg">
+                  <span>{{commend.rReview}}</span>
+                </div>
+                <span>{{commend.rReview}}</span>
+              </div>
+              <p class="info">{{commend.rReview}}</p>
+              <div class="imgBox flexd">
+                <div class="imgList">
+                  <div v-if="commend.r_review_imgs">
+                    <span v-for="value in commend.r_review_imgs.split(',')" style="margin-right:10px;margin-bottom:10px;display:inline-block;">
+                      <img v-lazy="HTTP + value">
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </yd-list>
+
+        <!-- 数据全部加载完毕显示 -->
+        <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~~</span>
+
+        <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+        <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+      </yd-infinitescroll>
+      <div v-if="commendLists.length<=0">
+        <div class="no_data flexd">
+          <div class="imgBox">
+            <img src="~@/public/img/yue.png" alt="加载中">
+          </div>
+          <p style="color:#737373;margin:18px 0;font-size:14px;">暂无数据</p>
+<div style="color:#fff;background:#ec642b;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/')">去逛逛</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div v-if="offline == 1" class="btn" @click="goPay()" style="font-size:15px;">去买单</div>
+
+  <yd-popup v-model="show1" position="center" width="90%">
+    <div class="text-center" style="position:relative;padding:20px 0;">
+      <div class="flexd " style="margin:0 10px;" @click="show1 = false">
+        <p class="text-center flex" style="padding-left:23px;">关注公众号方可进行交易</p>
+        <img src="~@/public/img/empty.png" style="width:26px;height:26px;">
+      </div>
+
+
+      <div style="width:70%;margin:10px auto;background:#fff;">
+        <img src="~@/public/img/code.jpg" alt="此处放二维码" style="width:100%;height:100%;">
+      </div>
+      <p style="color:#000;font-size:16px;">长按识别二维码</p>
+      <p style="color:#ff8485;font-size:14px;">关注'亿货惠'</p>
+    </div>
+  </yd-popup>
+
+</div>

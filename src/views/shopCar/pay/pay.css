@@ -1,0 +1,118 @@
+.pay .content {
+  padding:50px 0;
+  background: #f7f7f7;
+}
+
+.pay .payTitle {
+  display:flex;
+  align-items:center;
+  font-size:14px;
+  margin-bottom:10px;
+  padding-bottom:10px;
+  border-bottom:solid 1px #bbbbbb;
+}
+
+.pay .payTitle .titleMes {
+  color:#232323;
+  font-size:15px;
+  font-weight:500;
+  margin-left:6px;
+}
+/*-----------------商品信息----------------------*/
+
+.pay .product {
+  line-height: 20px;
+}
+
+ .pay .product1 {
+   justify-content: space-around;
+  margin:10px;
+  padding:20px 10px;
+  border-radius:6px;
+  background: #fff;
+  font-size:14px;
+}
+
+.pay .product1 .inputText {
+  color:#424242;
+}
+
+.pay .product1 .inputMoney {
+  color:#979797
+}
+
+/* 支付方式 */
+.pay .method {
+  margin:15px 12px 10px;
+  padding:15px 12px;
+  border-radius:8px;
+  background: #fff;
+}
+
+.pay .addinfo {
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  position: relative;
+  padding:4px 0;
+  background: #fff;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.pay .addinfo .payIcon{
+  width:23px;
+  height:23px;
+  vertical-align: middle;
+}
+
+.pay .payName{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex:1;
+  padding: 0 10px;
+}
+
+.pay .demo2-item {
+  width: 23px;
+  height: 23px;
+  border: 1px solid #c95859;
+  display: inline-block;
+  border-radius: 50%;
+  line-height: 23px;
+  text-align: center;
+}
+
+.pay .demo2-item-selected {
+  background:#fff url('~@/public/img/checked.png') no-repeat center;
+  background-size:23px 23px;
+  border:solid 1px transparent;
+}
+
+.pay  .demo2-item-disabled {
+  background:#fff url('~@/public/img/disabled.png') no-repeat center;
+  background-size:23px 23px;
+  border:solid 1px transparent;
+}
+
+
+.pay .attention {
+  background: #f9f9f9;
+  padding:15px;
+  margin-top:8px;
+  font-size:14px;
+  color:#7a7a7a;
+  line-height:22px;
+}
+
+.pay .payBtn {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:50px;
+  line-height: 50px;
+  font-size:17px;
+  background:#af0203;
+  color:#fff;
+}

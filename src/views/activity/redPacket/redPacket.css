@@ -1,0 +1,170 @@
+.packet-box .main-box {
+  background: url('/static/imgs/packet_bg.png') no-repeat center;
+  background-size: 100%;
+}
+
+.packet-box .main {
+  position: relative;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #232323;
+}
+
+.main .circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #ef9035;
+}
+
+.main h1 {
+  font-size: 16px;
+  line-height: 76px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.main p {
+  font-size: 14px;
+  margin: 18px 0;
+  font-weight: bolder;
+}
+
+.main h2 {
+  font-size: 25px;
+}
+
+.main h2 span {
+  font-size: 14px !important;
+}
+
+/* 代金券 */
+
+.cash-coupon {
+  margin: 98px 16px 0;
+}
+
+.cash-coupon img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.cash-coupon .cash-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url('/static/imgs/packet_bg02.png') no-repeat center;
+  background-size: 100%;
+  margin-bottom: 6px;
+  color: #fff;
+  padding: 0 28px;
+  font-weight: normal;
+}
+.cash-list .list-left {
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.list-left h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.list-left h1 span {
+  font-size: 18px !important;
+}
+
+.list-left p {
+  line-height: 20px;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.list-right h2 {
+  font-size: 15px;
+  line-height: 26px;
+  letter-spacing: 2px;
+  text-align: right;
+}
+
+/* 弹框 */
+
+.popup {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, .8);
+  width: 100%;
+  height: 100%;
+  z-Index: 99;
+}
+
+.popup .popup-top {
+  /* background: url('/static/imgs/Popup_bg03.png') no-repeat center; */
+ /* border:1px solid green; */
+  background-size: 100%;
+  width: 90%;
+  height: 100%;
+  color: #fbdeb0;
+  position: absolute;
+  bottom: 0;
+  left:5%;
+  letter-spacing: 1px;
+ 
+}
+
+.content-box {
+  background: url('/static/imgs/Popup_bg03.png') no-repeat center;
+  background-size: 100%;
+  position: relative;
+  top:15%;
+  height:500px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-top .logo-box {
+ width: 46px;
+ height: 46px;
+  margin-top: 46px;
+  margin-bottom: 14px;
+      background: #fff;
+      border-radius: 50%;
+}
+.logo-box img{
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+      margin-top: 10%;
+}
+
+.popup-top p {
+  font-size: 13px;
+}
+
+.popup-top h1 {
+  font-size: 16px;
+  margin-top: 38px;
+    margin-bottom: 78px;
+}
+.popup-top .btn {
+  font-size: 43px;
+  color:#3a3a3a;
+  font-weight: 540;
+  position: relative;
+  margin-top:10%;
+  text-align: center;
+}
+
+.popup .popup-bottom {
+  position: absolute;
+  bottom: 40px;
+}

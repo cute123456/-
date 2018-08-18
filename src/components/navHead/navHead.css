@@ -1,0 +1,57 @@
+body {
+  position: relative;
+}
+
+.navHead {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  z-index: 2000;
+  color: #242424;
+  font-size: 16px;
+  background: #fff;
+  box-shadow: 0 1px 4px #d9d9d9;
+}
+
+
+.navHead .back{
+  position: absolute;
+  top: 14px;
+  left:18px;
+  display: block;
+  line-height: 21px;
+  color: #ccc;
+}
+
+.navHead .back {
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+}
+
+.navHead .back img{
+  width:17px;
+  height:17px;
+}
+
+.navHead .header-title{
+  margin: 0 88px;
+  height: 50px;
+  line-height: 50px;
+  width: auto;
+  font-size:16px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navHead .right{
+  position: absolute;
+  top: 14px;
+  right:15px;
+  display: block;
+  line-height: 21px;
+}

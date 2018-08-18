@@ -1,0 +1,182 @@
+.comment {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    padding-top: 16px;
+}
+
+.text-area {
+    background: #f8f8f8;
+    outline: none;
+    font-size: 15px;
+}
+
+.showImg {
+    position: relative;
+    position: relative;
+    width: 80px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.showImg .pic {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #bebdbd;
+}
+
+.showImg .closeBtn {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+
+/* 输入评价区 */
+
+.commenArea {
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin: 0 16px;
+}
+
+.commenArea .textarea {
+    width: 100%;
+    height: 120px;
+    padding: 13px 14px;
+    border: none;
+    background: #f8f8f8;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.textarea input::-webkit-input-placeholder {
+    color: #7e7e7e;
+    font-size: 13px;
+}
+
+.textarea input:-moz-placeholder {
+    color: #7e7e7e;
+    font-size: 13px;
+}
+
+.textarea input::-moz-placeholder {
+    color: #7e7e7e;
+    font-size: 13px;
+}
+
+.textarea input:-ms-input-placeholder {
+    color: #7e7e7e;
+    font-size: 13px;
+}
+
+
+/* 上传图片 */
+
+.imgBox {
+    padding-bottom: 20px;
+}
+
+.imgLabel {
+    display: inline-block;
+    text-align: center;
+    /* background: #f0f0f0; */
+    position: relative;
+    vertical-align: top;
+    width: 76px;
+    height: 76px;
+    border: 0.1px dashed #b1b1b1;
+    margin-left: 14px;
+}
+
+.imgLabel label {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.imgLabel input {
+    display: none;
+}
+
+.imgLabel .uploadBtn {
+    position: absolute;
+    width: 32px;
+    margin-top: 12px;
+    margin-left: -17px;
+    left: 50%;
+    top: 4px;
+}
+
+.imgLabel span {
+    display: block;
+    color: #b5b5b5;
+    font-size: 12px;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 60px;
+    margin-left: -30px;
+    letter-spacing: 1px;
+}
+
+
+/* 打分 */
+
+.score {
+    padding: 16px 14px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    margin: 12px 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score img {
+    width: 36px;
+    height: 36px;
+}
+
+.score span {
+    font-size: 14px !important;
+    color: #313131;
+}
+
+.score h1 {
+    font-size: 24px;
+    color: #313131;
+}
+
+.star-box {
+    display: flex;
+    justify-content: flex-start;
+}
+.yd-rate a:after { 
+  font-size: 20px !important;
+}
+
+.btn {
+    position: fixed;
+    bottom: 36px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 30px;
+    width: 90%;
+    margin: 0 auto;
+    background: linear-gradient(to right, #ef9035, #ec642b);
+    color: #fff;
+    font-size: 15px;
+}

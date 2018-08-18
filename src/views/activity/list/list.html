@@ -1,0 +1,19 @@
+<div class="activityList">
+    <navHead title="活动"></navHead>
+    <div class="content">
+        
+        <div class="list list1" @click="goRecharge()">  <!-- 充值活动 -->
+            <p class="item">充值送好礼，还在等什么</p>
+        </div>
+        
+        <div class="list list2" v-if="turnFlag == 1" @click="$router.push('/turnTable')"> <!-- 大转盘 -->
+            <p class="item">每日转一转，欢乐拿大奖</p>
+        </div>
+        <!-- <div class="list list3" @click="$router.push('/activity/join')">
+            <p class="item">活动时间：12-30至02-30</p>
+        </div> -->
+        <div class="list list3" v-if="joinFlag == 1" @click="goSign()"> <!-- 新版报名活动 -->
+            <p class="item">名额有限，速速报名</p>
+        </div>
+    </div>
+</div>

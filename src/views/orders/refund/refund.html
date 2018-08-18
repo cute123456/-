@@ -1,0 +1,46 @@
+<div class="complaints">
+    <navHead title="退款"></navHead>
+    <div class="wrap">
+        <div class="goods-detail">
+            <div class="top flexd">
+                <p>
+                    <icon-svg icon-class="dianpu" class="aliIcon"></icon-svg>
+                    <span class="text-nowrap flex">{{orderInfos.shopName}}</span>
+                </p>
+            </div>
+            <div class="comment text-left">
+                <div class="item">
+                    <div class="left">
+                        <img class="itemImg" v-lazy="HTTP + goods.goodsThumb">
+                    </div>
+                    <div class="right flex text-left">
+                        <p class="itemName text-twowrap">
+                            {{goods.goodsName ? goods.goodsName : ''}}
+                        </p>
+                        <p class="money">
+                            <sub style="font-size: 12px;">¥</sub>
+                            <sub style="font-size: 16px;">{{goods.goodsPrice}}</sub>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="commenArea">
+            <textarea class="textarea" v-model="comment" @input="descInput" placeholder="请输入退款说明..."></textarea>
+            <p class="text-right" style="font-size:15px;padding-right:10px;line-height:26px;">
+            </p>
+        </div>
+        <div @click="GoComment()" class="publish text-center">申请退款</div>
+    </div>
+    <!-- 退货理由 -->
+    <div class="reason-alert" v-if="show" @click.self="show=false">
+        <div class="center">
+            <div class="item">
+                <yd-radio-group v-model="radio" style="display:flex;flex-direction:column;" color="#ef8733">
+                    <yd-radio style="margin-bottom:15px;" v-for="item in reason" :key="item.id" :val="item"></yd-radio>
+                </yd-radio-group>
+            </div>
+        </div>
+    </div>
+</div>

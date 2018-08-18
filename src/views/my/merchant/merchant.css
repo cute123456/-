@@ -1,0 +1,301 @@
+.merchant {
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  /* padding-bottom: 20px; */
+}
+
+.mainWrap {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 15px;
+  overflow-y: scroll;
+  bottom: 0;
+}
+
+/* 头部步骤 */
+
+.step-one {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 20px 40px;
+}
+
+.step-one img {
+  width: 100%;
+}
+
+.merchant .top {
+  /* margin-top: 52px; */
+  background: #f4f5f7;
+  display: flex;
+  /* padding: 30px 20px; */
+  justify-content: space-around;
+  text-align: center;
+}
+
+.merchant .top>div {
+  width: 30%;
+  padding: 30px 0;
+}
+
+.merchant .top>div div {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 40px;
+}
+
+.merchant .top h3 {
+  width: 30px;
+  height: 30px;
+  border-radius: 16px;
+  border: 2px solid #e3e3e3;
+  padding: 2px;
+  line-height: 22px;
+  background: #ffffff;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.merchant .top i {
+  width: 68%;
+  border: 1px solid #e3e3e3;
+  margin-left: 10px;
+  position: absolute;
+  left: 60%;
+}
+
+.merchant .top>div.checked>div>h3 {
+  color: #ffffff;
+  background: #e42324;
+}
+
+.merchant .top>div.checked>div>i {
+  border-color: #e42324;
+}
+
+.merchant .top>div.checked>p {
+  color: #e42324;
+}
+
+.merchant .top p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* 步骤一 */
+
+.merchant .conten1,
+.conten2,
+.detail_con3 {
+  margin-top: 10px;
+  padding: 5px 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.merchant .mesItem {
+  display: flex;
+  padding: 20px 0 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.merchant .mesItem p {
+  font-size: 15px;
+  font-weight: 600;
+  color: #353535;
+}
+
+.merchant .mesItem input,
+.merchant .mesItem select,
+.merchant .mesItem option {
+  border: none;
+  outline: none;
+  flex: 1;
+  -webkit-appearance: none;
+  font-family: Tahoma, Arial;
+  color: #bebebe;
+}
+
+::-webkit-input-placeholder {
+  color: #bebebe;
+}
+
+/* 步骤二 */
+
+.merchant .conten2>div {
+  margin: 10px;
+  font-size: 14px;
+  /* border-bottom: 1px solid #e5e5e5; */
+}
+
+.merchant .licenseNumber {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+}
+
+.merchant .licenseNumber input {
+  border: none;
+  outline: none;
+  margin-left: 16px;
+  /* font-weight:500; */
+}
+
+.merchant .icon {
+  width: 40px;
+  height: 40px;
+}
+
+.merchant .imgBox {
+  padding-bottom: 20px;
+}
+
+.merchant .imgBox .imgTitle {
+  padding-bottom: 20px;
+  font-size: 15px;
+  color: #353535;
+  font-weight: 600;
+}
+
+/* 按钮 */
+
+.bottom {
+  width: 100%;
+  line-height: 40px;
+  background: #f8f8f8;
+}
+
+.merchant .stepBtn {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  background: -webkit-linear-gradient(to right, #ef9035, #ec642b);
+  background: -o-linear-gradient(to right, #ef9035, #ec642b);
+  background: -moz-linear-gradient(to right, #ef9035, #ec642b);
+  background: -mos-linear-gradient(to right, #ef9035, #ec642b);
+  background: linear-gradient(to right, #ef9035, #ec642b);
+  box-shadow: 2.007px 2.229px 16.56px 1.44px rgba(246, 223, 211, 0.3);
+  color: #fff;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+.merchant .stepTwoBtn {
+  width: 36%;
+  display: inline-block;
+}
+
+/* 步骤三 */
+
+.step-three {
+  text-align: center;
+}
+
+.step-three img {
+  margin-top: 80px;
+  margin-bottom: 45px;
+  width: 150px;
+}
+
+.step-three p {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2e2e2e;
+}
+
+.merchant .title1>div {
+  width: 80px;
+  height: 80px;
+  /* background: #af0203; */
+  border-radius: 50px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 20px
+}
+
+.merchant .dian {
+  width: 80%;
+  height: 100%;
+}
+
+
+.imgLabel {
+  display: inline-block;
+  text-align: center;
+  background: #f0f0f0;
+  color: #a0a0a0;
+  position: relative;
+  vertical-align: top;
+  width: 80px;
+  height: 81px;
+}
+
+.imgLabel label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 81px;
+}
+
+.imgLabel input {
+  display: none;
+}
+
+.imgLabel .uploadBtn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  left: 50%;
+  top: 4px;
+}
+
+.imgLabel span {
+  display: block;
+  font-size: 12px;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 60px;
+  margin-left: -30px;
+}
+
+.showImg {
+  position: relative;
+  position: relative;
+  width: 80px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.showImg .pic {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #bebdbd;
+}
+
+.showImg .closeBtn {
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.apply-wait {
+  width: 30px;
+  margin-right: 10px;
+  margin-bottom: 4px;
+}

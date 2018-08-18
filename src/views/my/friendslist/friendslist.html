@@ -1,0 +1,36 @@
+<div class="friendslist">
+    <div class="shownum">
+        <div class="num">
+            <div class="desc">好友人数</div>
+            <div class="detalnum">{{pageSize?pageSize:'0'}}<span style="font-size: 15px;">人</span></div>
+        </div>
+        <div class="num">
+            <div class="desc" style="padding: 0;">分润总额</div>
+            <div class="detalnum" style="padding: 0;">{{totalProfit?totalProfit:'0'}}<span style="font-size: 15px;">元</span></div>
+        </div>
+    </div>
+    <div class="list-box">
+        <div class="title">
+            <div class="title-detail">昵称</div>
+            <div class="title-detail">分润金额</div>
+            <div class="title-detail">日期</div>
+        </div>
+        <div class="list">
+            <yd-infinitescroll :callback="getFriend" ref="infinitescrollDemo">
+                <yd-list theme="1" slot="list">
+                    <div v-for="(item, index) in friendlist" :key="index" class="list-item">
+                        <div class="nickname">{{item.nickname?item.nickname:''}}</div>
+                        <div class="money">{{item.friend&&item.friend.profit?item.friend.profit:'0.00'}}</div>
+                        <div class="nickname">{{item.createdAt?item.createdAt:''}}</div>
+                    </div>
+                </yd-list>
+                <!-- 数据全部加载完毕显示 -->
+                <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有更多好友啦~</span>
+                <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+            </yd-infinitescroll>
+        </div>
+    </div>
+    <!-- <fixBottom :check="5"></fixBottom> -->
+
+</div>

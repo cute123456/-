@@ -1,0 +1,53 @@
+<div class="packet-box">
+    <!-- <navHead title=""></navHead> -->
+    <div class="main-box">
+        <div class="main">
+            <div class="circle">
+                <h1>
+                    <img :src="message.logo">
+                </h1>
+            </div>
+            <p>{{message.text}}</p>
+            <h2>{{money}}
+                <span>元</span>
+            </h2>
+        </div>
+    </div>
+    <div class="cash-coupon">
+        <img src="/static/imgs/packet_banner.png">
+        <div class="cash-list" v-for="item in cashList" :key="item.id">
+            <div class="list-left">
+                <h1>{{item.couponName}}
+                    <span>元代金券</span>
+                </h1>
+                <p>消费满{{item.bottomPrice}}元，即可使用代金券</p>
+                <p>使用期限：{{item.startTime}}-{{item.expiredTime}}</p>
+            </div>
+            <div class="list-right" @click="getCash(item.id)">
+                <div v-if="status==1">
+                    <h2>立即</h2>
+                    <h2>领取</h2>
+                </div>
+                <div v-if="status==0">
+                    <h2 style="width:20px;">已领取</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 弹框 -->
+    <div class="popup" v-if="isOpen==0">
+        <div class="popup-top">
+            <div class="content-box">
+                <div class="logo-box">
+                    <img :src="popupList.logo">
+                </div>
+                <p>{{popupList.name}}</p>
+                <h1>{{popupList.text}}</h1>
+                <div class="btn" @click="open()">開</div>
+                <p class="popup-bottom">{{popupList.content}}</p>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="appraise">
+    <NavHead title="全部评论"></NavHead>
+    <div class="content">
+        <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+            <div style="width:100%;" slot="list">
+                <div class="list" v-for="(commend ,i) in commendLists" :key="i">
+                    <div class="flexd listTop">
+                        <div class="flexd topLeft">
+                            <img v-if="commend.rReviewImgs" v-lazy="HSrc(commend.rReviewImgs)">
+                            <img v-else src="~@/public/img/logo.jpg">
+                            <span>{{commend.rUid}}</span>
+                        </div>
+                        <span>{{commend.createdAt}}</span>
+                    </div>
+                    <p class="info">{{commend.rReview}}</p>
+                    <div class="imgBox flexd">
+                        <div class="imgList">
+                            <div v-if="commend.r_review_imgs">
+                                <span v-for="value in commend.r_review_imgs.split(',')" style="margin-right:10px;">
+                                    <img v-lazy = "HTTP + value" >
+                                </span>
+                            </div>
+                            <!--  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">还没有评价~~</span>
+
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+        </yd-infinitescroll>
+        <div v-if="commendLists.length<=0">
+            <div class="no_data flexd">
+                <div class="imgBox">
+                    <img src="~@/public/img/pingjia.png" alt="加载中">
+                </div>
+                <p style="color:#737373;margin:18px 0;font-size:14px;">当前暂无评论</p>
+                <div style="color:#fff;background:#ec642b;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/')">买个商品去评价</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="myRed">
+    <navHead title="红包明细" style="z-index:10"></navHead>
+    <div class="totalMoney">
+        <div class="money text-left">
+            <p style="text-align:center;font-size:31px;">{{redenvelope}}</p>
+            <p class="balance">我的红包</p>
+            <!-- <div class="flexd text-center" style="justify-content:center;font-size:14px;">
+                <p @click="goPage(1)" class="recharge">充值</p>
+                <p @click="goPage(2)" class="put-forward">提现</p>
+            </div> -->
+        </div>
+    </div>
+    <div class="listBox flexd text-center">
+        <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo" style="width:100%;">
+            <yd-list theme="1" slot="list">
+                <div class="balance-list" v-for="item in balanceList" :key="item.id">
+                    <div class="list-item fir">
+                        <p v-if="item.sign===1">红包收入</p>
+                        <p v-if="item.sign===0">红包支出</p>
+                    </div>
+                    <div class="list-item sec">
+                        <span v-if="item.sign == 1">+{{item.amounts}}</span>
+                        <span v-else><i class="red">-</i>{{item.amounts}}</span>
+                        <span>{{item.createdAt}}</span>
+
+                    </div>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~~</span>
+
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+        </yd-infinitescroll>
+        <span v-if="pageSize==0" style="display:block; margin: 0 auto; ">暂无数据~~</span>
+    </div>
+</div>

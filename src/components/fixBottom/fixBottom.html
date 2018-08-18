@@ -1,0 +1,27 @@
+<footer class="footerbar">
+
+  <div @click="$router.push('/')" class="flex text-center">
+    <span class="footItem" v-bind:class="{'home2':check==1,'home1':check!=1}">首页</span>
+  </div>
+
+  <div @click="goClassify()" class="flex text-center">
+    <span class="footItem" v-bind:class="{'classify2':check==2,'classify1':check!=2}" style="position:relative;">分类</span>
+  </div>
+<div @click="$router.push('/find')" class="flex text-center">
+    <span class="footItem" v-bind:class="{'find2':check==3,'find1':check!=3}" style="position:relative;">发现</span>
+  </div>
+
+  <div @click="$router.push('/shopCar')" class="flex text-center">
+    <span class="footItem" v-bind:class="{'shop2':check==4,'shop1':check!=4}" style="position:relative;">
+    购物车
+    </span>
+  </div>
+
+  <div @click="$router.push('/my')" class="flex text-center">
+    <span class="footItem" v-bind:class="{'my2':check==5,'my1':check!=5}">我的</span>
+  </div>
+
+  <!-- <a class="change">
+        <img src="./img/realChange1.png" v-if="check!=3">
+    </a> -->
+</footer>

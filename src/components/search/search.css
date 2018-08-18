@@ -1,0 +1,48 @@
+/* 搜索 */
+.searchCon {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:10;
+  padding: 0 10px;
+  background:#fafafa;
+  overflow: hidden;
+  height: 45px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.searchCon  .searchWrap {
+  display: flex;
+  margin-left: 5px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  margin: 8px auto;
+
+}
+
+.searchCon .searchIcon{
+  flex:0 0 40px;
+  margin-top:4px;
+}
+
+.searchCon  .searchText{
+  margin: 0;
+  line-height: 30px;
+  color: #848484;
+  font-size:14px;
+  font-weight:500;
+  font-family: 'SimHei';
+  border:none;
+  outline: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.searchCon .search{
+  margin-left: 12px;
+  font-size: 15px;
+  line-height: 30px; 
+  color: #666;
+}

@@ -1,0 +1,49 @@
+.invite {
+    position: relative;
+}
+
+.invite .bg {
+    padding-top: 50px;
+    width: 100%;
+    height: 100vh;
+}
+
+.user-info {
+    position: absolute;
+    z-index: 999;
+    top: 26%;
+    left: 26px;
+}
+
+.code {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 26px;
+}
+
+.code img {
+    width: 110px;
+    height: 110px;
+}
+
+.user-img {
+    display: flex;
+    justify-items: center;
+}
+
+.user-img img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* line-height: 72px; */
+    text-align: center;
+    border: 2px solid #fff;
+}
+
+.user-img p {
+    margin-left: 10px;
+    align-self: center;
+    color: #fff;
+}

@@ -1,0 +1,50 @@
+<div class="recharge">
+    <div class="rechargeBg">
+        <img src="~@/public/img/activity/activity-bg.png" alt="" style="width:100%;height:100%;">
+    </div>
+    <div class="content">
+        <div class="tishi flexd">
+            <img class="textImg" src="~@/public/img/activity/text1.png">
+            <p>{{news.recharge_pro_desc}}</p>
+        </div>
+        <div class="charge flexd">
+            <input type="number" placeholder="输入充值金额" v-model="chargeMoney" class="rechargeMoney flex">
+            <div @click="recharge()" class="rechargeBtn">充值</div>
+        </div>
+        <div>
+            <img class="textImg" src="~@/public/img/activity/text2.png">
+        </div>
+        <div class="giftBox">
+            <checker v-model="gift" default-item-class="demo2-item" selected-item-class="demo2-item-selected">
+                <div v-for="item in news.discount">
+                    <div class="addinfo">
+                        <checker-item :value="item"></checker-item>
+                        <span class="giftName">{{item.title}}</span>
+                    </div>
+                    <div class="giftCon">
+                        <p v-for="value in item.detail.split(',')" :key="value.id">{{value}}</p>
+                    </div>
+                </div>
+            </checker>
+
+
+        </div>
+    </div>
+    
+    <yd-popup v-model="show1" position="center" width="90%">
+        <div class="text-center" style="position:relative;padding:20px 0;">
+            <div class="flexd " style="margin:0 10px;" @click="show1 = false">
+                <p class="text-center flex" style="padding-left:23px;">关注公众号方可进行交易</p>
+                <img src="~@/public/img/empty.png" style="width:26px;height:26px;">
+            </div>
+    
+    
+            <div style="width:70%;margin:10px auto;background:#fff;">
+                <img src="~@/public/img/code.jpg" alt="此处放二维码" style="width:100%;height:100%;">
+            </div>
+            <p style="color:#000;font-size:16px;">长按识别二维码</p>
+            <p style="color:#ff8485;font-size:14px;">关注'亿货惠'</p>
+        </div>
+    </yd-popup>
+
+</div>

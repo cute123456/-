@@ -1,0 +1,38 @@
+.notice-box {
+    margin: 64px 16px 0;
+}
+
+.notice-list img {
+    width: 100%;
+    max-height: 160px;
+}
+
+.detail-banner {
+    display: block;
+    border-radius: 8px;
+    box-shadow: 3px 6px 22px rgba(4, 0, 0, 0.3);
+}
+
+.notice-list h1 {
+    font-size: 14px;
+    color: #061523;
+    margin-top: 16px;
+    margin-left: 6px;
+}
+
+.notice-list h2 {
+    font-size: 12px;
+    color: #a1a1a1;
+    margin-top: 6px;
+    font-weight: normal;
+    margin-left: 6px;
+}
+
+.notice-list p {
+    font-size: 12px;
+    color: #383838;
+    text-align: justify;
+    /* text-indent: 24px; */
+    line-height: 21px;
+    margin: 12px 6px;
+}

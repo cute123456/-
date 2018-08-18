@@ -1,0 +1,128 @@
+.join {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  left: 0;
+  right: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.joinBg {
+  background-image: url('~@/public/img/activity/joinBg2.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left:0;
+  right:0;
+}
+
+.join .messageWrap {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 14px;
+  width: 90%;
+  margin: 44% auto 40px;
+  padding: 15px 0;
+}
+
+.messageItem {
+  display: flex;
+  margin: 0 10px 10px;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.join .message .title {
+  height: 40px;
+  line-height: 40px;
+  color: #7e3ecf;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.join .blue {
+  color: #7e3ecf;
+  font-weight: bold;
+  flex: 0 0 80px;
+  text-align: right;
+}
+
+.message .messageText {
+  flex: 1;
+  padding: 0 6px;
+  background: #d4d4d4;
+  border-radius: 4px;
+  line-height: 34px;
+  color: #fff;
+  width: 100%;
+}
+
+.join .notice {
+  margin: 14px 22px 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.join .signBtn {
+  background: #a11fdf;
+  margin: 10px;
+  border-radius: 10px;
+  color: #fff;
+  line-height: 42px;
+  font-size: 16px;
+}
+
+/* 支付方式 */
+
+.join .method {
+  margin: 15px 12px 10px;
+  padding: 15px 12px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.join .addinfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 4px 20px;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.join .addinfo .payIcon {
+  width: 23px;
+  height: 23px;
+  vertical-align: middle;
+}
+
+.join .payName {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  padding: 0 10px;
+}
+
+.join .demo2-item {
+  width: 23px;
+  height: 23px;
+  border: 1px solid #c95859;
+  display: inline-block;
+  border-radius: 50%;
+  line-height: 23px;
+  text-align: center;
+}
+
+.join .demo2-item-selected {
+  background: #fff url('~@/public/img/checked.png') no-repeat center;
+  background-size: 23px 23px;
+  border: solid 1px transparent;
+}
+
+.join .demo2-item-disabled {
+  background: #fff url('~@/public/img/disabled.png') no-repeat center;
+  background-size: 23px 23px;
+  border: solid 1px transparent;
+}

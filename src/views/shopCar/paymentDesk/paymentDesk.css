@@ -1,0 +1,182 @@
+.payment .content {
+    padding: 60px 0;
+    background: #fff;
+    width: 100%;
+}
+
+.payment .payTitle {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    /* border-bottom:solid 1px #eeeeee; */
+}
+
+.payment .payTitle .titleMes {
+    color: #232323;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+
+/*-----------------商品信息----------------------*/
+
+.payment .product {
+    line-height: 20px;
+}
+
+.payment .product1 {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    background: #f9f9f9;
+}
+
+.payment .product2 {
+    flex: 0 0 80px;
+}
+
+.payment .product2 img {
+    width: 80px;
+    height: 80px;
+}
+
+.payment .productMes {
+    padding-left: 10px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.payment .productMes .name {
+    font-size: 14px;
+}
+
+.payment .productMes .guige {
+    color: #909090;
+    font-size: 12px;
+}
+
+.payment .product .openMes {
+    margin: 12px;
+    padding: 10px 6px;
+    color: #959595;
+    font-size: 14px;
+    border-bottom: solid .5px #d3d3d3;
+}
+
+
+/* 支付方式 */
+
+.payment .method {
+    margin: 15px 12px 10px;
+    padding: 15px 12px;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.payment .addinfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 4px 0;
+    background: #f9f9f9;
+    font-size: 15px;
+    line-height: 55px;
+    height: 55px;
+}
+
+.payment .addinfo .payIcon {
+    width: 23px;
+    height: 23px;
+    vertical-align: middle;
+}
+
+.payment .payName {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    padding: 0 10px;
+}
+
+.payment .demo2-item {
+    width: 23px;
+    height: 23px;
+    border: 1px solid #c95859;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 23px;
+    text-align: center;
+}
+
+.payment .demo2-item-selected {
+    background: #fff url('~@/public/img/checked.png') no-repeat center;
+    background-size: 23px 23px;
+    border: solid 1px transparent;
+}
+
+.payment .demo2-item-disabled {
+    background: #fff url('~@/public/img/disabled.png') no-repeat center;
+    background-size: 23px 23px;
+    border: solid 1px transparent;
+}
+
+.payment .attention {
+    background: #fff;
+    padding: 15px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #7a7a7a;
+    line-height: 22px;
+}
+
+.payment .payBtn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 17px;
+    background: #ec642b;
+    color: #fff;
+}
+
+.column {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+    /* border-bottom: .5px solid #e6e6e6; */
+}
+
+.colLeft {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #080808
+}
+
+.colLeft .centerIcon {
+    width: 22px;
+    max-height: 24px;
+    display: block;
+    margin-right: 10px;
+}
+
+.colRight {
+    padding-right: 14px;
+    color: #838282;
+}
+
+.you {
+    width: 14px;
+    height: 16px;
+    margin-left: 4px;
+    margin-top: 3px;
+}

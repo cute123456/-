@@ -1,0 +1,75 @@
+<div class="merchant">
+  <navHead title="申请为商家审核状态" style="z-index:10"></navHead>
+  <div class="mainWrap">
+    <!-- 步骤三，审核结果 -->
+    <div class="conten3">
+      <div class="title1">
+        <!-- 1成功，2通过，3失败         -->
+        <h1 v-if="is_business==1" style="border-top: 6px solid #ec642b;">
+          <img class="apply-wait" src="../../../public/img/apply-wait.png">资料提交成功，等待审核中！</h1>
+        <h1 v-else-if="is_business==2" style="border-top: 6px solid #2fb485;">
+          <img class="apply-wait" src="../../../public/img/apply-suc.png">您提交的审核已通过！</h1>
+        <h1 v-else-if="is_business==3" style="border-top: 6px solid #c86161;">
+          <img class="apply-wait" src="../../../public/img/apply-fail.png">您提交的审核未通过
+          <p>请检查审核资料后重新提交审核</p>
+        </h1>
+      </div>
+      <div class="detail_con3" style="padding-bottom:20px;">
+        <div class="reviewItem">
+          <p>商家名称:</p>
+          <div>{{baseMessage.b_name}}</div>
+        </div>
+        <div class="reviewItem">
+          <p>姓名:</p>
+          <div>{{baseMessage.b_uname}}</div>
+        </div>
+        <div class="reviewItem">
+          <p>电话:</p>
+          <div>{{baseMessage.b_mobile}}</div>
+        </div>
+        <div class="reviewItem">
+          <p>地址:</p>
+          <div>{{baseMessage.address}}{{baseMessage.b_detail_address}}</div>
+        </div>
+        <div class="reviewItem">
+          <p>类型:</p>
+          <div>{{baseMessage.b_type}}</div>
+        </div>
+        <div class="book">
+          <p>店铺门头照</p>
+          <div>
+            <img v-lazy="HTTP + photo">
+          </div>
+        </div>
+        <div class="book">
+          <p>店铺门内部照片</p>
+          <div class="book-more">
+            <img v-lazy="HTTP + item" v-for="item in store_photo">
+          </div>
+        </div>
+        <div class="book">
+          <p>身份证正反面</p>
+          <div class="book-more">
+            <img v-lazy="HTTP + personFront">
+            <img v-lazy="HTTP + personBack">
+          </div>
+        </div>
+        <div class="book">
+          <p>商店营业执照</p>
+          <div>
+            <img v-lazy="HTTP + licenseThumb">
+          </div>
+        </div>
+        <div class="book">
+          <p>法人银行卡照片</p>
+          <div>
+            <img v-lazy="HTTP + bank_thumb">
+          </div>
+        </div> 
+          <div class="bottom" v-if="is_business==3">
+        <p class="stepBtn flex text-center" @click="$router.push('/my/merchant')">重新提交</p>
+      </div>
+      </div>   
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="cart">
+  <div class="header">
+    <div class="back" @click="$router.go(-1)">
+      <icon-svg icon-class="fanhui1" class="fanhui"></icon-svg>
+    </div>
+    <div class="flex text-center">购物车</div>
+    <div @click="editFlag = !editFlag" v-if="!editFlag" class="head-right text-right">编辑</div>
+    <div @click="editFlag = !editFlag" v-if="editFlag" style="padding:0 4px;font-size:14px;">完成</div>
+    <div @click="delProduct()" v-if="editFlag" style="padding:0 4px;font-size:14px;">删除</div>
+  </div>
+  <div class="shop-content" v-if="shopNoneFlag">
+
+    <!-- 商品列表 -->
+    <div style="margin:66px 10px 0;">
+      <div class="list" v-for="(shop,index) in shopCar" :key="shop.id">
+        <div class="payTitle">
+          <span class="shopIcon" @click="selectShop(shop.goods, index)" v-bind:class="{'shopIconYes':shop.checked,'shopIconNull':!shop.checked}"></span>
+          <div>
+<icon-svg icon-class="dianpu" class="aliIcon"></icon-svg>
+            <span class="titleName">{{shop.name}}</span>
+          </div>
+        </div>
+        <div class="addinfo flexd" v-for="goods in shop.goods" :key="goods.id">
+          <span @click="selectProduct(goods,shop.goods)" class="shopIcon" v-bind:class="{'shopIconYes':goods.checked,'shopIconNull':!goods.checked}"></span>
+          <div class="infoImg" @click="$router.push('/classifyDetail/detail?id=' + goods. id)">
+            <img alt="图片" :src="imgUrl + goods.goodsThumb">
+          </div>
+          <div class="infoMes flex">
+            <div class="text-twowrap1" style="font-size:14px;">{{goods.goodsName}}</div>
+            <div style="display:flex;align-items:center;margin-top:5px;">
+              <div class="text-twowrap2" v-for="value in  goods.model" style="font-size:12px;color:#8f8f8f;margin-right:10px;">{{value}}</div>
+            </div>
+
+            <div class="red" style="font-weight:500;font-size:14px;margin-top:5px;">
+              <span style="font-size:13px;">￥</span>
+              <span>{{goods.goodsPrice}}</span>
+            </div>
+            <div class="flexd">
+              <!-- <div class="red" style="font-size: 12px;" v-if="goods.is_join_yigoods == 1">
+                                <img src="~@/public/img/home/豆子.png" style="width:14px;height:14px;">
+                                <span>{{Math.ceil(goods.singlePrice * goods.g_yratio)}}</span>
+                            </div> -->
+              <div class="quantity flex text-right">
+                <span class="text-center" @click="changequantity(goods,-1)">-</span>
+                <input class="text-center" type="text" v-model="goods.quantity" readonly />
+                <span class="text-center" @click="changequantity(goods,1)">+</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+
+  <!-- 购物车为空 -->
+  <div class="shopNone text-center" v-if="!shopNoneFlag">
+    <div class="noneImg">
+      <img src="~@/public/img/shopCar.png">
+    </div>
+    <p>购物车是空的</p>
+    <div class="goHome" @click="$router.push('/')">去逛逛</div>
+  </div>
+
+  <!-- 结算 -->
+
+  <div class="moneyBottom" v-if="shopNoneFlag">
+    <div class="text-right" style="display:flex;justify-content:flex-end;align-items:center;height:30px;background:#fff;padding-right:10px;">
+      合计：
+      <span class="red" style="font-weight:500;">
+        <span style="font-size:14px;">￥</span>
+        <span style="font-size:16px;">{{totalMoney}}</span>
+      </span>
+    </div>
+    <div class="shopBuy flexd">
+      <div @click="checkAllProduct()" class="flex" style="padding-left:10px;display:flex;align-items:center;">
+        <span class="shopIcon" v-bind:class="{'shopIconYes':checkAll,'shopIconNull':!checkAll}"></span>
+        <p>全选</p>
+      </div>
+      <div class="shop-buy-right text-center" @click="goToSettlement()">去结算</div>
+    </div>
+  </div>
+
+
+  <!-- <fixBottom :check="4"></fixBottom> -->
+</div>
+
+
+
+</div>

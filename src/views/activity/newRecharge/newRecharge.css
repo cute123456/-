@@ -1,0 +1,139 @@
+.rechargeBg {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 110px;
+  right: 0;
+  padding: 10px 16px 0;
+  overflow-y: scroll;
+  background: #f7f7f7;
+}
+
+.title {
+  height: 40px;
+  line-height: 40px;
+  font-size:15px;
+}
+
+.wrap {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.demo5-item {
+  width: 45%;
+  height: 74px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #e7abab;
+  background-color: #fff;
+  margin-bottom: 10px;
+  color: #606060;
+  font-size: 14px;
+}
+
+.demo5-item .yi_money {
+  color: #e42324;
+  font-size: 15px;
+}
+
+.recharge .demo5-item-selected {
+
+  background: #e42324 url('~@/public/img/activity/checked.png') no-repeat;
+  border-color: #e42324;
+  background-size: 100% 73px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.recharge .demo5-item-selected .yi_money {
+  color: #f0ff4d;
+  font-size: 15px;
+}
+
+/* 手输金额 */
+.recharge .writeWrap{
+  height:42px;
+  line-height: 42px;
+  border-radius: 10px;
+  border:solid 1px #df8182;
+  background: #fff;
+}
+
+/* 支付方式 */
+
+.recharge .method {
+  margin: 15px 12px 10px;
+  padding: 15px 12px;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.recharge .addinfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 4px 0;
+  background: #f9f9f9;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.recharge .addinfo .payIcon {
+  width: 23px;
+  height: 23px;
+  vertical-align: middle;
+}
+
+.recharge .payName {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  padding: 0 10px;
+}
+
+.recharge .demo2-item {
+  width: 23px;
+  height: 23px;
+  border: 1px solid #c95859;
+  display: inline-block;
+  border-radius: 50%;
+  line-height: 23px;
+  text-align: center;
+}
+
+.recharge .demo2-item-selected {
+  background: #fff url('~@/public/img/checked.png') no-repeat center;
+  background-size: 23px 23px;
+  border: solid 1px transparent;
+}
+
+.recharge .bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index:10;
+  padding-top:10px;
+  height:110px;
+  background: #f7f7f7;
+}
+
+.recharge .btn {
+  height: 46px;
+  line-height: 46px;
+  border-radius: 30px;
+  width: 80%;
+  margin: 0 auto 10px;
+  background: #e42324;
+  color: #fff;
+  font-size: 15px;
+}
+
+.recharge .text {
+  font-size: 14px;
+  color: #999999;
+}

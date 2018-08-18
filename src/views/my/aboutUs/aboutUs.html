@@ -1,0 +1,19 @@
+<div class="about">
+    <navHead title="关于我们"></navHead>
+    <div class="conten">
+        <div class="title">
+            <div class="avator">
+                <img :src="HTTP+infos.introductionScr" alt="">
+            </div>
+        </div>
+        <a :href="'tel:'+infos.introductionMobile">
+            <div class="phone" style="display: flex;justify-content: center">
+                <div style="display:flex; align-items: center;">
+                    <icon-svg icon-class="mmobilephone" class="you"></icon-svg>
+                    <p style="margin-left:10px; margin-right: 0;">客服电话：{{infos.introductionMobile}}</p>
+                </div>
+            </div>
+        </a>
+        <div class="detail" v-html="infos.introduction"></div>
+    </div>
+</div>

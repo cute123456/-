@@ -1,0 +1,42 @@
+.activityList .content {
+  padding-top: 60px;
+}
+
+.activityList .list {
+  margin: 10px;
+  height: 80px;
+  border-radius: 6px;
+  overflow: hidden;
+  color: #ffffff;
+  font-size: 15px;
+  position: relative;
+}
+
+.activityList .list .item {
+  /* width:46%; */
+  /* height:120px; */
+  position: absolute;
+  right: 10px;
+  bottom:10px;
+  font-size:13px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.activityList .list1 {
+  background: url("~@/public/img/activity/activity1.png") no-repeat;
+  background-size:100% 100%;
+  
+}
+
+.activityList .list2 {
+  background: url("~@/public/img/activity/activity2.png") no-repeat;
+  background-size:100% 100%;
+  
+}
+
+.activityList .list3 {
+  background: url("~@/public/img/activity/activity3.png") no-repeat;
+  background-size:100% 100%;
+  
+}

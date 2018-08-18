@@ -1,0 +1,84 @@
+.tab {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    padding: 15px;
+    width: 65%;
+}
+
+.tab-bg {
+    display: flex;
+    justify-content: center;
+    background: #f9f9f9;
+}
+
+.tab-item {
+    color: #6c6c6c;
+    font-weight: 600;
+    font-size: 16px;
+    background: none;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.tab-item.active {
+    color: #fff;
+    background-image: -webkit-linear-gradient( 90deg, rgb(238, 118, 47) 0%, rgb(248, 118, 66) 100%);
+    box-shadow: 2.007px 2.229px 16.56px 1.44px rgba(238, 127, 49, 0.19);
+}
+
+.tab-content {
+    margin: 0 15px;
+    margin-top: 15px;
+}
+
+.content-list {
+    background: url('~@/public/img/activity/daijin-bg.png') repeat left/cover;
+    color: #fff;
+}
+
+.tab-content-used .content-list {
+    background: url('~@/public/img/activity/daijin-used-bg.png') repeat left/cover !important;
+    color: #656565;
+}
+
+.tab-content .wrap {
+    padding-left: 40px;
+    padding-top: 12px;
+    padding-bottom: 15px;
+}
+
+.tab-content-used .wap {
+    margin-bottom: 5px!important;
+}
+
+.fisrt-t {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.fisrt-t span {
+    margin-right: 5px;
+    font-size: 30px;
+    height: 30px;
+}
+
+.second-t {
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.third-t {
+    margin-bottom: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

@@ -1,0 +1,30 @@
+.notice-box {
+    margin: 64px 16px 0;
+}
+
+.notice-box .notice-list {
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-shadow: 3px 6px 22px rgba(4, 0, 0, 0.07);
+}
+
+.notice-list img {
+    width: 100%;
+    max-height: 160px;
+}
+
+.notice-list h1 {
+    font-size: 14px;
+    color: #061523;
+    margin-left: 9px;
+    margin-top: 16px;
+}
+
+.notice-list p {
+    font-size: 12px;
+    color: #a1a1a1;
+    margin: 10px 0 19px 9px;
+}

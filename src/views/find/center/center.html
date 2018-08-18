@@ -1,0 +1,54 @@
+<!-- 推荐店铺 -->
+<div class="shop-box" style="background:#fff;">
+    <navHead title="发现"></navHead>
+    <!-- 定位及搜索 -->
+    <div class="search-box">
+        <div class="shop-search">
+            <div class="searchCon text-center">
+                <div class="searchWrap">
+                    <img src="/static/imgs/search-icon.png" @click="searchShop()">
+                    <input type="text" placeholder="请输入要店铺名..." style="padding-left:10px;" v-model="searchText" @keyup.enter="searchShop">
+                </div>
+            </div>
+            <span @click="searchShop()">搜索</span>
+        </div>
+    </div>
+    <!-- 店铺列表 -->
+    <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+        <yd-list theme="1" slot="list">
+            <div class="shop-list" v-for="item in shopList" :key="item.id">
+                <div class="shop-title">
+                    <div class="shop-left">
+                        <div class="tou">
+                            <img :src="imgUrl+item.companyPhoto">
+                        </div>
+                        <div class="shop-text">
+                            <h1>{{item.shopName}}</h1>
+                            <p>{{item.address}}</p>
+                            <!-- <span>{{item.content}}</span>
+              <span>{{item.num}}</span> -->
+                        </div>
+                    </div>
+                    <div @click="$router.push('/find/storeInformation?id=' + item.id)" class="shop-btn">
+                        <p>进店</p>
+                    </div>
+                </div>
+            </div>
+        </yd-list>
+        <!-- 数据全部加载完毕显示 -->
+        <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~~</span>
+
+        <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+        <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+    </yd-infinitescroll>
+    <div v-if="shopList.length<=0">
+        <div class="no_data">
+            <div class="imgBox">
+                <img src="~@/public/img/yue.png" alt="加载中">
+            </div>
+            <p style="text-align:center;color:#737373;margin:18px 0;font-size:14px;">暂无数据</p>
+        </div>
+    </div>
+    <fixBottom :check="3"></fixBottom>
+</div>

@@ -1,0 +1,62 @@
+.myMoney .totalMoney {
+    position:absolute;
+    top:50px;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#fff;
+    overflow-y: scroll;
+}
+
+.money {
+    height:150px;
+    padding:0 14px;
+    color:#fff;
+    background: #e64a28 url('~@/public/img/yueBg.png') no-repeat;
+    background-size:cover;
+}
+
+.myMoney .lists {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid #dcdcdc;
+    line-height: 24px;
+}
+
+.myMoney .lists div {
+    flex-direction: column;
+}
+
+.myMoney .lists p {
+    font-size: 15px;
+    color: #171717;
+}
+
+.myMoney .lists span {
+    font-size: 12px;
+    color: #898989;
+}
+
+
+/* 无数据 */
+
+.myMoney .no_data {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.myMoney .no_data .imgBox {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+}
+
+.myMoney .no_data .imgBox img {
+    width: 100%;
+}
+
+.none {
+    display: none;
+}

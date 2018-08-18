@@ -1,0 +1,42 @@
+.about {
+    background: #fff;
+}
+
+.about p {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.about .conten {
+    padding: 10px 10px 60px;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+}
+
+.about .conten img {
+    width: 35%;
+    margin:0 auto;
+    display: block;
+}
+
+.phone svg {
+    width: 20px;
+    height: 20px;
+}
+
+.about .phone {
+    display: flex;
+    align-items: center;
+}
+
+.about .detail {
+    font-size: 15px;
+    color: #666;
+    line-height: 24px;
+    margin: 10px 0;
+    padding: 10px 0;
+}

@@ -1,0 +1,242 @@
+.center {
+    /* padding-bottom:80px; */
+    background: #fff;
+    position: relative;
+}
+
+
+/* 个人中心头部 */
+
+.center .banner {
+    background: url("~@/public/img/center/center_bg.png");
+    background-size: 100% 100%;
+    /* height: 140px; */
+    position: relative;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.center .userinfo {
+    background: #fff;
+    position: relative;
+    top: 28px;
+    margin: 0 16px;
+    border-radius: 8px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 30px rgba(4, 0, 0, 0.08);
+}
+
+.center .infoImg {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: space-between;
+    margin: 0 16px;
+    padding-top: 16px;
+}
+
+.center .user-img {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.center .user-img img {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    overflow: hidden;
+    line-height: 72px;
+    text-align: center;
+    /* border: 3px solid #fff; */
+}
+
+.user-img h1 {
+    color: #ed6a2c;
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+    font-style: italic;
+    /* width: 34px; */
+    text-align: right;
+    margin-left: 10px;
+}
+
+.user-img h1 img {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.center .infoImg p {
+    margin-left: 10px;
+    font-weight: 550;
+    color: #2d2d2d;
+    font-size: 18px;
+    text-align: left;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline;
+}
+
+.center .info-box {
+    display: flex;
+    justify-content: space-around;
+}
+
+.center .infoMoneyBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #c5c5c5;
+    font-size: 12px;
+    margin-top: 20px;
+    /* margin-left: 20px; */
+    font-size: 18px;
+    /* font-weight: 600; */
+}
+
+.center .infoMoneyBox .money-title {
+    font-size: 12px;
+}
+
+.center .infoMoneyBox .money {
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 546;
+    white-space: 2px;
+    margin-bottom: 23px;
+    background: linear-gradient(to right, #ef9035, #ec642b);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.money span {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.center .userTop {
+    /* margin-right: 25px; */
+    color: #fff;
+    font-size: 14px;
+    justify-content: flex-end;
+}
+
+.center .userTop img {
+    height: 18px;
+}
+
+
+/* 内容列表 */
+
+.center .content {
+    margin-top: 46px;
+    padding: 0 18px;
+    overflow-y: hidden;
+    border-radius: 10px;
+}
+
+.center .title {
+    height: 40px;
+    padding: 6px 0;
+    box-sizing: border-box;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.center .titleLeft {
+    font-size: 15px;
+}
+
+.center .titleRight {
+    padding-top: 5px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    color: #818181;
+}
+
+.center .orders {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* height: 90px; */
+    padding: 20px 0;
+    font-size: 14px;
+    color: #080808;
+}
+
+.center .orderslist {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #202020;
+}
+
+.center .orderslist .orderItem {
+    display: block;
+    width: auto;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.center .menu {
+    margin-bottom: 90px;
+    min-height: 340px;
+    margin-top: 15px;
+    padding-left: 18px;
+    color: #202020;
+    box-sizing: border-box;
+    /* background: #f8f8f8; */
+    border-radius: 10px;
+}
+
+.center .menu::-webkit-scrollbar {
+    display: none;
+}
+
+.center .column {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: .5px solid #e6e6e6;
+}
+
+.center .colLeft {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #080808
+}
+
+.center .colLeft .centerIcon {
+    width: 22px;
+    max-height: 24px;
+    display: block;
+    margin-right: 10px;
+}
+
+.center .colRight {
+    padding-right: 14px;
+    color: #838282;
+}
+
+.center .you {
+    width: 14px;
+    height: 16px;
+    margin-left: 4px;
+}

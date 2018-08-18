@@ -1,0 +1,47 @@
+<div class="myMoney">
+    <navHead :title="titleMes" style="z-index:10"></navHead>
+    <div class="totalMoney text-center">
+        <div class="money text-left">
+            <p style="font-size:16px;padding:20px 0 36px;">{{title}}总数</p>
+            <p style="font-size:36px;" v-if="title == '消费'">{{countAll.spend}}</p>
+            <p style="font-size:36px;" v-if="title == '提现'">{{countAll.cashOut}}</p>
+            <p style="font-size:36px;" v-if="title == '营业额'">{{countAll.turnover}}</p>
+            <p style="font-size:36px;" v-if="title == '充值'">{{countAll.recharge}}</p>
+        </div>
+        <div>
+            <div v-if="pageSize<=0">
+                <div class="no_data flexd">
+                    <div class="imgBox">
+                        <img src="~@/public/img/yue.png" alt="加载中">
+                    </div>
+                    <p style="color:#737373;margin:18px 0;font-size:14px;">当前暂无明细</p>
+                    <div style="color:#fff;background:#ec642b;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/activity/rechargeMoney')">充值余额</div>
+                </div>
+            </div>
+            <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+
+                <yd-list theme="1" slot="list">
+                    <div class="lists" v-for="item in moneys" :key="item.id" v-if="moneys.length>0">
+                        <div class="text-left">
+                            <p v-if="item.reason">{{item.reason}}</p>
+                            <span v-if="item.money">{{item.sign == 0 ? '-' : '+'}}{{item.money}}</span>
+                        </div>
+                        <div>
+                            <span v-if="item.created_at">{{item.created_at}}</span>
+                        </div>
+                    </div>
+
+                </yd-list>
+
+                <!-- 数据全部加载完毕显示 -->
+                <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~~</span>
+
+                <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+            </yd-infinitescroll>
+
+        </div>
+    </div>
+
+</div>

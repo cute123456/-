@@ -1,0 +1,129 @@
+.orderDetail {
+    background: #f9f9f9;
+}
+
+.orderDetail .conten {
+    background: #ffffff;
+    padding: 60px 0 10px;
+}
+
+.orderDetail .top,
+.details {
+    background: #f9f9f9;
+    width: 94%;
+    margin: auto;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.orderDetail .cost,
+.bottom {
+    width: 94%;
+    margin: auto;
+    padding: 16px;
+    line-height: 24px;
+}
+
+.orderDetail .top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.orderDetail .top p {
+    color: #646464;
+}
+
+.orderDetail .top span {
+    color: #727272;
+    font-size: 12px;
+}
+
+.orderDetail .cost p,
+.title,
+.xinxi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orderDetail .title {
+    border-bottom: .5px solid #bbbbbb;
+    line-height: 40px;
+    font-size: 15px;
+}
+
+.orderDetail .title>span {
+    color: #b42021;
+}
+
+.orderDetail .lists {
+    border-bottom: .5px solid #dadada;
+    padding-bottom: 6px;
+    line-height: 24px;
+}
+
+.orderDetail .list {
+    display: flex;
+    padding: 10px 0;
+}
+
+.orderDetail .list .listPic {
+    width: 100px;
+    height: 100px;
+}
+
+.orderDetail .list .listCon {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.orderDetail .name {
+    font-size: 14px;
+    color: #232323;
+}
+
+.orderDetail .type {
+    font-size: 12px;
+    color: #b0b0b0;
+}
+
+.orderDetail .price,
+.orderDetail .yidou {
+    font-size: 12px;
+    color: #6b6b6b;
+}
+
+.orderDetail .price {
+    font-size: 14px;
+}
+
+.orderDetail .yidou {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cost {
+    color: #484848;
+}
+
+.orderDetail .costBox {
+    background: #ffffff;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #898989;
+}
+
+.orderDetail .status {
+    border: .5px solid #959595;
+    font-size: 14px;
+    padding: 2px 10px;
+    color: #4a4a4a;
+    border-radius: 20px;
+    margin: 30px 15px 30px 0px;
+    display: inline-block;
+}
